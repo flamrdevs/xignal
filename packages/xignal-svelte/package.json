@@ -1,0 +1,39 @@
+{
+	"name": "@xignal/svelte",
+	"version": "0.0.0",
+	"description": "signal",
+	"keywords": ["signal", "svelte"],
+	"license": "MIT",
+	"author": {
+		"name": "flamrdevs"
+	},
+	"type": "module",
+	"main": "./dist/index.svelte.js",
+	"types": "./dist/index.svelte.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.svelte.d.ts",
+			"default": "./dist/index.svelte.js"
+		}
+	},
+	"files": ["dist"],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/flamrdevs/xignal.git",
+		"directory": "packages/xignal-svelte"
+	},
+	"scripts": {
+		"build": "tsdown"
+	},
+	"peerDependencies": {
+		"svelte": "^5.0.0",
+		"xignal": "workspace:*"
+	},
+	"devDependencies": {
+		"svelte": "^5.0.0",
+		"xignal": "workspace:*"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

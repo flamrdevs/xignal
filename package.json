@@ -1,0 +1,44 @@
+{
+	"name": "root",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"prepare": "husky",
+		"build:packages": "turbo build --filter=\"./packages/*\"",
+		"test": "cross-env VITEST_BROWSER_HEADLESS=true vitest run",
+		"test-ui": "cross-env VITEST_UI=true vitest --ui",
+		"bench": "vitest bench --run",
+		"publint": "pnpm --parallel --filter=\"./packages/*\" exec publint",
+		"prerelease": "pnpm run build:packages && pnpm run publint",
+		"release": "pnpm publish -r",
+		"format": "biome check --write",
+		"inspect": "pnpx node-modules-inspector"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@changesets/cli": "^2.29.2",
+		"@master/css-runtime": "2.0.0-rc.67",
+		"@preact/preset-vite": "^2.10.1",
+		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@types/node": "^22.15.2",
+		"@vitejs/plugin-react": "^4.4.1",
+		"@vitejs/plugin-vue": "^5.2.3",
+		"@vitest/browser": "^3.1.2",
+		"@vitest/ui": "^3.1.2",
+		"cross-env": "^7.0.3",
+		"es-toolkit": "^1.36.0",
+		"husky": "^9.1.7",
+		"playwright": "^1.52.0",
+		"publint": "^0.3.12",
+		"tests": "workspace:*",
+		"tsdown": "^0.9.9",
+		"turbo": "^2.5.2",
+		"vite-plugin-solid": "^2.11.6",
+		"vitest": "^3.1.2"
+	},
+	"packageManager": "pnpm@10.8.1",
+	"engines": {
+		"node": ">=22.0.0"
+	}
+}

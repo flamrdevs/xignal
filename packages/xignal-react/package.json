@@ -1,0 +1,42 @@
+{
+	"name": "@xignal/react",
+	"version": "0.0.0",
+	"description": "signal",
+	"keywords": ["signal", "react"],
+	"license": "MIT",
+	"author": {
+		"name": "flamrdevs"
+	},
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": ["dist"],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/flamrdevs/xignal.git",
+		"directory": "packages/xignal-react"
+	},
+	"scripts": {
+		"build": "tsdown"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0",
+		"xignal": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/react": "^18.0.0",
+		"@types/react-dom": "^18.0.0",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"xignal": "workspace:*"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

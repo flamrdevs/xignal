@@ -1,0 +1,33 @@
+---
+import Framework from "./Framework.solid";
+
+import CounterVanilla from "./Counter.vanilla.astro";
+import CounterPreact from "./Counter.preact";
+import CounterReact from "./Counter.react";
+import CounterSolid from "./Counter.solid";
+import CounterSvelte from "./Counter.svelte";
+import CounterVue from "./Counter.vue";
+---
+
+<div class="relative flex items-center justify-center w-dvw h-dvh bg-zinc-950 text-zinc-50">
+  <div class="grid grid-cols-3 gap-x-6 lg:gap-x-8 gap-y-8 lg:gap-y-12">
+    <Framework client:load id="vanilla">
+      <CounterVanilla />
+    </Framework>
+    <Framework client:load id="preact">
+      <CounterPreact client:only="preact" />
+    </Framework>
+    <Framework client:load id="react">
+      <CounterReact client:only="react" />
+    </Framework>
+    <Framework client:load id="solid">
+      <CounterSolid client:only="solid-js" />
+    </Framework>
+    <Framework client:load id="svelte">
+      <CounterSvelte client:only="svelte" />
+    </Framework>
+    <Framework client:load id="vue">
+      <CounterVue client:only="vue" />
+    </Framework>
+  </div>
+</div>

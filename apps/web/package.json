@@ -1,0 +1,37 @@
+{
+	"name": "web",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview"
+	},
+	"dependencies": {
+		"@astrojs/preact": "^4.0.10",
+		"@astrojs/react": "^4.2.5",
+		"@astrojs/solid-js": "^5.0.9",
+		"@astrojs/svelte": "^7.0.11",
+		"@astrojs/vue": "^5.0.11",
+		"@xignal/preact": "workspace:*",
+		"@xignal/react": "workspace:*",
+		"@xignal/solid": "workspace:*",
+		"@xignal/svelte": "workspace:*",
+		"@xignal/vue": "workspace:*",
+		"astro": "^5.7.5",
+		"clsx": "^2.1.1",
+		"preact": "^10.0.0",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"solid-js": "^1.0.0",
+		"svelte": "^5.0.0",
+		"vue": "^3.0.0",
+		"xignal": "workspace:*"
+	},
+	"devDependencies": {
+		"@tailwindcss/vite": "^4.1.4",
+		"@types/react": "^18.0.0",
+		"@types/react-dom": "^18.0.0",
+		"tailwindcss": "^4.1.4"
+	}
+}

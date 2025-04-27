@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"vue.volar",
+		"svelte.svelte-vscode",
+		"astro-build.astro-vscode",
+		"gruntfuggly.todo-tree",
+		"bradlc.vscode-tailwindcss"
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"name": "tests",
+	"type": "module",
+	"private": true,
+	"exports": {
+		".": "./index.ts",
+		"./browser": "./browser/index.ts",
+		"./ui": "./ui/index.ts",
+		"./utils": "./utils/index.ts",
+		"./types": "./types.d.ts",
+		"./config": "./config.ts"
+	}
+}
