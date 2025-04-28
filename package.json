@@ -22,7 +22,6 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@changesets/cli": "^2.29.2",
-		"@master/css-runtime": "2.0.0-rc.67",
 		"@preact/preset-vite": "^2.10.1",
 		"@private/tests": "workspace:*",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",

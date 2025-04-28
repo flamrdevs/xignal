@@ -14,9 +14,6 @@ importers:
       '@changesets/cli':
         specifier: ^2.29.2
         version: 2.29.2
-      '@master/css-runtime':
-        specifier: 2.0.0-rc.67
-        version: 2.0.0-rc.67
       '@preact/preset-vite':
         specifier: ^2.10.1
         version: 2.10.1(@babel/core@7.26.10)(preact@10.26.5)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3))
@@ -142,7 +139,11 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4
 
-  packages/private-tests: {}
+  packages/private-tests:
+    devDependencies:
+      '@master/css-runtime':
+        specifier: 2.0.0-rc.67
+        version: 2.0.0-rc.67
 
   packages/xignal:
     dependencies:

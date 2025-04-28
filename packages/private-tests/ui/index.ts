@@ -1,6 +1,6 @@
 import { initCSSRuntime } from "@master/css-runtime";
 
-const createInitCSSRuntime = (components: Record<string, string>) => {
+const createInitCSSRuntime = (components: Record<string, string>): (() => void) => {
 	document.body.id = "master";
 
 	const runtime = initCSSRuntime({
@@ -13,7 +13,7 @@ const createInitCSSRuntime = (components: Record<string, string>) => {
 	};
 };
 
-export const initCSSRuntimeCounter = () =>
+export const initCSSRuntimeCounter = (): (() => void) =>
 	createInitCSSRuntime({
 		"counter-container": "px:20 py:32 bg:white fg:black font:mono",
 		"counter-count": "font:medium text:center text:24",

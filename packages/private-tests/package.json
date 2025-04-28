@@ -5,9 +5,15 @@
 	"exports": {
 		".": "./index.ts",
 		"./browser": "./browser/index.ts",
-		"./ui": "./ui/index.ts",
 		"./utils": "./utils/index.ts",
 		"./types": "./types.d.ts",
-		"./config": "./config.ts"
+		"./config": "./config.ts",
+		"./ui": "./dist/ui/index.js"
+	},
+	"scripts": {
+		"build": "tsdown"
+	},
+	"devDependencies": {
+		"@master/css-runtime": "2.0.0-rc.67"
 	}
 }
