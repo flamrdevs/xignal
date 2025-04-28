@@ -7,3 +7,4 @@ onlyBuiltDependencies:
   - '@biomejs/biome'
   - esbuild
   - rolldown
+  - sharp
