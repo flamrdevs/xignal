@@ -11,7 +11,7 @@
 		"pretestui": "pnpm run build:packages",
 		"testui": "cross-env VITEST_UI=true vitest --ui",
 		"prepublint": "pnpm run build:packages",
-		"publint": "pnpm --parallel --filter=\"./packages/*\" exec publint",
+		"publint": "pnpm --parallel --filter=xignal --filter=\"@xignal/*\" exec publint",
 		"prerelease": "pnpm run publint",
 		"release": "pnpm publish -r",
 		"format": "biome check --write",
