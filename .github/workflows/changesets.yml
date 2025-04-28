@@ -27,7 +27,7 @@ jobs:
           cache: 'pnpm'
       
       - name: Install
-        run: pnpm install
+        run: pnpm install && pnpm exec playwright install --with-deps chromium
       
       - name: Create and release versions
         uses: changesets/action@v1
