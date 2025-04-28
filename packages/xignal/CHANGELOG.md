@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.3
+
+### Patch Changes
+
+- 400c462: remove set action signal
+- 71267cc: update readme
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @xignal/solid
 
+## 0.0.3
+
+### Patch Changes
+
+- 400c462: remove set action signal
+- 71267cc: update readme
+- Updated dependencies [400c462]
+- Updated dependencies [71267cc]
+  - xignal@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
