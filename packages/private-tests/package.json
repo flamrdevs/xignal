@@ -1,5 +1,5 @@
 {
-	"name": "tests",
+	"name": "@private/tests",
 	"type": "module",
 	"private": true,
 	"exports": {

@@ -2,7 +2,7 @@ import { defineProject } from "vitest/config";
 
 import react from "@vitejs/plugin-react";
 
-import { custom } from "tests/config";
+import { custom } from "@private/tests/config";
 
 const config = custom(__dirname, { browser: true });
 

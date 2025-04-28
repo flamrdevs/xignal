@@ -2,9 +2,9 @@ import * as vt from "vitest";
 
 import { delay } from "es-toolkit/promise";
 
-import { expectGetElementsToBeInTheDocument } from "tests/browser";
-import { initCSSRuntimeCounter } from "tests/ui";
-import { cleanupable } from "tests/utils";
+import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
+import { initCSSRuntimeCounter } from "@private/tests/ui";
+import { cleanupable } from "@private/tests/utils";
 
 import { render } from "./utils";
 

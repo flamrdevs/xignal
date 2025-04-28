@@ -20,6 +20,9 @@ importers:
       '@preact/preset-vite':
         specifier: ^2.10.1
         version: 2.10.1(@babel/core@7.26.10)(preact@10.26.5)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3))
+      '@private/tests':
+        specifier: workspace:*
+        version: link:packages/private-tests
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.3
         version: 5.0.3(svelte@5.28.2)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3))
@@ -53,9 +56,6 @@ importers:
       publint:
         specifier: ^0.3.12
         version: 0.3.12
-      tests:
-        specifier: workspace:*
-        version: link:tests
       tsdown:
         specifier: ^0.9.9
         version: 0.9.9(publint@0.3.12)(typescript@5.8.3)
@@ -142,6 +142,8 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4
 
+  packages/private-tests: {}
+
   packages/xignal:
     dependencies:
       alien-signals:
@@ -201,8 +203,6 @@ importers:
       xignal:
         specifier: workspace:*
         version: link:../xignal
-
-  tests: {}
 
 packages:
 

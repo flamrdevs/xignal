@@ -2,7 +2,7 @@ import { defineProject } from "vitest/config";
 
 import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
-import { custom } from "tests/config";
+import { custom } from "@private/tests/config";
 
 const config = custom(__dirname, { browser: true });
 

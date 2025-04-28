@@ -1,1 +1,1 @@
-/// <reference types="tests/types" />
+/// <reference types="@private/tests/types" />

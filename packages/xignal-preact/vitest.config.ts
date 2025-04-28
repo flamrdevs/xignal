@@ -2,7 +2,7 @@ import { defineProject } from "vitest/config";
 
 import preact from "@preact/preset-vite";
 
-import { custom } from "tests/config";
+import { custom } from "@private/tests/config";
 
 const config = custom(__dirname, { browser: true });
 
