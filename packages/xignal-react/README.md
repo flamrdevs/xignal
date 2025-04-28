@@ -1,6 +1,6 @@
 ## Install
 
-npm i xignal @xignal/react
+`npm i xignal @xignal/react`
 
 ## License
 

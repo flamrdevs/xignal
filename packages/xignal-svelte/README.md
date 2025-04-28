@@ -1,6 +1,6 @@
 ## Install
 
-npm i xignal @xignal/svelte
+`npm i xignal @xignal/svelte`
 
 ## License
 

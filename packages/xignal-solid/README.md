@@ -1,6 +1,6 @@
 ## Install
 
-npm i xignal @xignal/solid
+`npm i xignal @xignal/solid`
 
 ## License
 

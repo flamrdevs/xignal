@@ -1,6 +1,6 @@
 ## Install
 
-npm i xignal @xignal/vue
+`npm i xignal @xignal/vue`
 
 ## License
 

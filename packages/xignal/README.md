@@ -1,6 +1,6 @@
 ## Install
 
-npm i xignal
+`npm i xignal`
 
 ## License
 
