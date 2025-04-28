@@ -174,7 +174,8 @@ const Framework = (props: ParentProps<{ id: keyof typeof ID; class?: string }>) 
 				props.class,
 			)}
 			onClick={() => {
-				count.set((n) => (n < 10 ? n + 1 : 0));
+				const currentCount = count.get();
+				count.set(currentCount < 10 ? currentCount + 1 : 0);
 			}}
 		>
 			<div class="relative h-2" />
