@@ -10,8 +10,6 @@
 		"test": "cross-env VITEST_BROWSER_HEADLESS=true vitest run",
 		"pretestui": "pnpm run build:packages",
 		"testui": "cross-env VITEST_UI=true vitest --ui",
-		"prebench": "pnpm run build:packages",
-		"bench": "vitest bench --run",
 		"prepublint": "pnpm run build:packages",
 		"publint": "pnpm --parallel --filter=\"./packages/*\" exec publint",
 		"prerelease": "pnpm run publint",

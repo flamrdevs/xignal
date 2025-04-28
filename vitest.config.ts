@@ -4,5 +4,6 @@ export default defineConfig({
 	test: {
 		workspace: ["packages/*/vitest.config.ts"],
 		pool: "threads",
+		testTimeout: 10000,
 	},
 });

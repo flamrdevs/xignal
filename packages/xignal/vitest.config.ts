@@ -9,11 +9,7 @@ export default defineProject({
 		...config.define,
 	},
 	test: {
-		environment: "node",
 		include: ["test/**/*.test.ts"],
-		benchmark: {
-			include: ["test/**/*.bench.ts"],
-		},
 		...config.test,
 	},
 });

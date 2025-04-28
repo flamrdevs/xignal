@@ -4,7 +4,7 @@ import preact from "@preact/preset-vite";
 
 import { custom } from "@private/tests/config";
 
-const config = custom(__dirname, { browser: true });
+const config = custom(__dirname);
 
 export default defineProject({
 	define: {

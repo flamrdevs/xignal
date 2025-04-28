@@ -6,7 +6,7 @@ import type { ViteUserConfig } from "vitest/config";
 export const custom = (
 	__dirname: string,
 	{
-		browser,
+		browser = true,
 	}: {
 		/**
 		 * enable browser mode
