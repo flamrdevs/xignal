@@ -33,7 +33,7 @@
 		"husky": "^9.1.7",
 		"playwright": "^1.52.0",
 		"publint": "^0.3.12",
-		"tsdown": "^0.9.9",
+		"tsdown": "^0.10.2",
 		"turbo": "^2.5.2",
 		"vite-plugin-solid": "^2.11.6",
 		"vitest": "^3.1.2"
