@@ -10,7 +10,7 @@ export default defineProject({
 	define: {
 		...config.define,
 	},
-	plugins: [vue()],
+	plugins: [config.plugins, vue()],
 	test: {
 		include: ["test/**/*.spec.ts"],
 		...config.test,

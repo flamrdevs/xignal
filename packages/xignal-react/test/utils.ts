@@ -1,15 +1,31 @@
+import { act } from "react";
 import type { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 
+let init = false;
+
 export const render = (children: ReactNode) => {
+	if (!init) {
+		init = true;
+		(window as any).IS_REACT_ACT_ENVIRONMENT = true;
+	}
+
 	const container = document.createElement("div");
 	document.body.appendChild(container);
 
 	const root = createRoot(container);
-	root.render(children);
+	act(() => {
+		root.render(children);
+	});
 
+	let removed = false;
 	return () => {
-		root.unmount();
-		document.body.removeChild(container);
+		if (!removed) {
+			removed = true;
+			act(() => {
+				root.unmount();
+			});
+			document.body.removeChild(container);
+		}
 	};
 };

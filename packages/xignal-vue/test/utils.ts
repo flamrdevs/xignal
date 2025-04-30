@@ -8,8 +8,12 @@ export const mount = (component: Component) => {
 	const app = createApp(component);
 	app.mount(container);
 
+	let removed = false;
 	return () => {
-		app.unmount();
-		document.body.removeChild(container);
+		if (!removed) {
+			removed = true;
+			app.unmount();
+			document.body.removeChild(container);
+		}
 	};
 };

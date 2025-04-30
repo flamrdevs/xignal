@@ -15,7 +15,11 @@
 		"strictNullChecks": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noEmit": true
+		"noEmit": true,
+		"baseUrl": "./",
+		"paths": {
+			"~/test/*": ["./test/*"]
+		}
 	},
 	"include": ["src", "test"],
 	"exclude": ["node_modules", "dist"]

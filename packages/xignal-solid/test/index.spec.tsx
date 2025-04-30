@@ -6,7 +6,7 @@ import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
 import { initCSSRuntimeCounter } from "@private/tests/ui";
 import { cleanupable } from "@private/tests/utils";
 
-import { render } from "./utils";
+import { render } from "~/test/utils";
 
 import * as counterState from "./counter.state";
 import Counter from "./Counter";

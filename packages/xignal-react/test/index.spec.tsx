@@ -1,12 +1,14 @@
 import * as vt from "vitest";
 
+import { act } from "react";
+
 import { delay } from "es-toolkit/promise";
 
 import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
 import { initCSSRuntimeCounter } from "@private/tests/ui";
 import { cleanupable } from "@private/tests/utils";
 
-import { render } from "./utils";
+import { render } from "~/test/utils";
 
 import * as counterState from "./counter.state";
 import Counter from "./Counter";
@@ -27,13 +29,17 @@ vt.describe("Counter", () => {
 
 		__VITEST_BROWSER_HEADLESS_DISABLED_AND_UI_ENABLED__ && (await delay(1000));
 
-		counterState.count.set(1);
+		act(() => {
+			counterState.count.set(1);
+		});
 
 		await expectGetElementsToBeInTheDocument((page) => [page.getByText("count 1"), page.getByText("doubled 2")]);
 
 		__VITEST_BROWSER_HEADLESS_DISABLED_AND_UI_ENABLED__ && (await delay(1000));
 
-		counterState.count.set(2);
+		act(() => {
+			counterState.count.set(2);
+		});
 
 		await expectGetElementsToBeInTheDocument((page) => [page.getByText("count 2"), page.getByText("doubled 4")]);
 	});

@@ -10,7 +10,7 @@ export default defineProject({
 	define: {
 		...config.define,
 	},
-	plugins: [svelte({ preprocess: vitePreprocess() })],
+	plugins: [config.plugins, svelte({ preprocess: vitePreprocess() })],
 	test: {
 		include: ["test/**/*.spec.ts"],
 		...config.test,

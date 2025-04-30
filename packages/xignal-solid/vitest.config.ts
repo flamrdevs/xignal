@@ -10,7 +10,7 @@ export default defineProject({
 	define: {
 		...config.define,
 	},
-	plugins: [solid()],
+	plugins: [config.plugins, solid()],
 	test: {
 		include: ["test/**/*.spec.tsx"],
 		...config.test,

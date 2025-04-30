@@ -8,7 +8,7 @@ import { cleanupable } from "@private/tests/utils";
 
 import { signal, computed, effect } from "xignal";
 
-import { render } from "./utils";
+import { render } from "~/test/utils";
 
 const cleanup = cleanupable();
 

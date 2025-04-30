@@ -7,8 +7,12 @@ export const render = (code: () => JSX.Element) => {
 
 	const dispose = _render(code, container);
 
+	let removed = false;
 	return () => {
-		dispose();
-		document.body.removeChild(container);
+		if (!removed) {
+			removed = true;
+			dispose();
+			document.body.removeChild(container);
+		}
 	};
 };

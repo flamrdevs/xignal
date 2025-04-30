@@ -62,6 +62,9 @@ importers:
       vite-plugin-solid:
         specifier: ^2.11.6
         version: 2.11.6(solid-js@1.9.5)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3))
+      vite-tsconfig-paths:
+        specifier: ^5.1.4
+        version: 5.1.4(typescript@5.8.3)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3))
       vitest:
         specifier: ^3.1.2
         version: 3.1.2(@types/debug@4.1.12)(@types/node@22.15.3)(@vitest/browser@3.1.2)(@vitest/ui@3.1.2)(jiti@2.4.2)(lightningcss@1.29.3)
@@ -2128,6 +2131,9 @@ packages:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
     engines: {node: '>=10'}
 
+  globrex@0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -3494,6 +3500,14 @@ packages:
     resolution: {integrity: sha512-m4i0G5oc3LPLA02uW2XsFZmYNxZdyryz5Ksi78O9puj/ao5c8dBUW06caGwoM1TmYknTBBUyKhtqajUpoP+z8Q==}
     peerDependencies:
       vite: 5.x || 6.x
+
+  vite-tsconfig-paths@5.1.4:
+    resolution: {integrity: sha512-cYj0LRuLV2c2sMqhqhGpaO3LretdtMn/BVX4cPLanIZuwwrkVl+lK84E/miEXkCHWXuq65rhNN4rXsBcOB3S4w==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
+        optional: true
 
   vite@6.3.3:
     resolution: {integrity: sha512-5nXH+QsELbFKhsEfWLkHrvgRpTdGJzqOZ+utSdmPTvwHmvU6ITTm3xx+mRusihkcI8GeC7lCDyn3kDtiki9scw==}
@@ -5776,6 +5790,8 @@ snapshots:
       merge2: 1.4.1
       slash: 3.0.0
 
+  globrex@0.1.2: {}
+
   graceful-fs@4.2.11: {}
 
   h3@1.15.2:
@@ -7401,6 +7417,17 @@ snapshots:
       source-map: 0.7.4
       stack-trace: 1.0.0-pre2
       vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3)
+
+  vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3)):
+    dependencies:
+      debug: 4.4.0
+      globrex: 0.1.2
+      tsconfck: 3.1.5(typescript@5.8.3)
+    optionalDependencies:
+      vite: 6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   vite@6.3.3(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3):
     dependencies:

@@ -36,6 +36,7 @@
 		"tsdown": "^0.10.2",
 		"turbo": "^2.5.2",
 		"vite-plugin-solid": "^2.11.6",
+		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^3.1.2"
 	},
 	"packageManager": "pnpm@10.8.1",

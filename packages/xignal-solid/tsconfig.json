@@ -17,7 +17,11 @@
 		"noUnusedParameters": true,
 		"noEmit": true,
 		"jsx": "preserve",
-		"jsxImportSource": "solid-js"
+		"jsxImportSource": "solid-js",
+		"baseUrl": "./",
+		"paths": {
+			"~/test/*": ["./test/*"]
+		}
 	},
 	"include": ["src", "test"],
 	"exclude": ["node_modules", "dist"]

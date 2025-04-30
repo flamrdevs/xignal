@@ -17,7 +17,11 @@
 		"noUnusedParameters": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
-		"jsxImportSource": "preact"
+		"jsxImportSource": "preact",
+		"baseUrl": "./",
+		"paths": {
+			"~/test/*": ["./test/*"]
+		}
 	},
 	"include": ["src", "test"],
 	"exclude": ["node_modules", "dist"]

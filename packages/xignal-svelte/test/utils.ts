@@ -7,8 +7,12 @@ export const mount = (component: ComponentType<SvelteComponent<any>>) => {
 
 	const mounted = _mount(component, { target: container });
 
+	let removed = false;
 	return () => {
-		unmount(mounted, { outro: true });
-		document.body.removeChild(container);
+		if (!removed) {
+			removed = true;
+			unmount(mounted, { outro: true });
+			document.body.removeChild(container);
+		}
 	};
 };

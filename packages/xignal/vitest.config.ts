@@ -8,6 +8,7 @@ export default defineProject({
 	define: {
 		...config.define,
 	},
+	plugins: [config.plugins],
 	test: {
 		include: ["test/**/*.test.ts"],
 		...config.test,

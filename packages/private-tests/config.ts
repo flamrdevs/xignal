@@ -3,6 +3,8 @@ import path from "node:path";
 
 import type { ViteUserConfig } from "vitest/config";
 
+import paths from "vite-tsconfig-paths";
+
 export const custom = (
 	__dirname: string,
 	{
@@ -31,6 +33,7 @@ export const custom = (
 			__VITEST_UI_ENABLED_,
 			__VITEST_BROWSER_HEADLESS_DISABLED_AND_UI_ENABLED__,
 		},
+		plugins: [paths()],
 		test: {
 			name,
 			...(browser && {

@@ -7,8 +7,12 @@ export const render = (vnode: ComponentChild) => {
 
 	_render(vnode, container);
 
+	let removed = false;
 	return () => {
-		_render(null, container);
-		document.body.removeChild(container);
+		if (!removed) {
+			removed = true;
+			_render(null, container);
+			document.body.removeChild(container);
+		}
 	};
 };
