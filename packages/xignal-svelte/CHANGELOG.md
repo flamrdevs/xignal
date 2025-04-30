@@ -1,5 +1,13 @@
 # @xignal/svelte
 
+## 0.0.4
+
+### Patch Changes
+
+- 2497d52: proper test
+- Updated dependencies [2497d52]
+  - xignal@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
