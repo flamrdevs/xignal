@@ -8,17 +8,17 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@astrojs/preact": "^4.0.10",
-		"@astrojs/react": "^4.2.5",
-		"@astrojs/solid-js": "^5.0.9",
-		"@astrojs/svelte": "^7.0.11",
-		"@astrojs/vue": "^5.0.11",
+		"@astrojs/preact": "^4.0.11",
+		"@astrojs/react": "^4.2.7",
+		"@astrojs/solid-js": "^5.0.10",
+		"@astrojs/svelte": "^7.0.13",
+		"@astrojs/vue": "^5.0.13",
 		"@xignal/preact": "workspace:*",
 		"@xignal/react": "workspace:*",
 		"@xignal/solid": "workspace:*",
 		"@xignal/svelte": "workspace:*",
 		"@xignal/vue": "workspace:*",
-		"astro": "^5.7.5",
+		"astro": "^5.7.10",
 		"clsx": "^2.1.1",
 		"preact": "^10.0.0",
 		"react": "^18.0.0",
@@ -29,9 +29,9 @@
 		"xignal": "workspace:*"
 	},
 	"devDependencies": {
-		"@tailwindcss/vite": "^4.1.4",
+		"@tailwindcss/vite": "^4.1.5",
 		"@types/react": "^18.0.0",
 		"@types/react-dom": "^18.0.0",
-		"tailwindcss": "^4.1.4"
+		"tailwindcss": "^4.1.5"
 	}
 }
