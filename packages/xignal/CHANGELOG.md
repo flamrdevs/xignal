@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.5
+
+### Patch Changes
+
+- b6bf99f: update alien-signals
+
 ## 0.0.4
 
 ### Patch Changes
