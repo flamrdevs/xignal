@@ -111,25 +111,25 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       lit:
-        specifier: ^3.0.0
+        specifier: ^3
         version: 3.3.0
       preact:
-        specifier: ^10.0.0
+        specifier: ^10
         version: 10.26.5
       react:
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.1
       react-dom:
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.1(react@18.3.1)
       solid-js:
-        specifier: ^1.0.0
+        specifier: ^1
         version: 1.9.5
       svelte:
-        specifier: ^5.0.0
+        specifier: ^5
         version: 5.28.2
       vue:
-        specifier: ^3.0.0
+        specifier: ^3
         version: 3.5.13(typescript@5.8.3)
       xignal:
         specifier: workspace:*
@@ -139,10 +139,10 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5(vite@6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.3))
       '@types/react':
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.20
       '@types/react-dom':
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.6(@types/react@18.3.20)
       tailwindcss:
         specifier: ^4.1.5
@@ -157,13 +157,13 @@ importers:
   packages/xignal:
     dependencies:
       alien-signals:
-        specifier: ^2.0.1
+        specifier: ^2
         version: 2.0.1
 
   packages/xignal-lit:
     devDependencies:
       lit:
-        specifier: ^3.0.0
+        specifier: ^3
         version: 3.3.0
       xignal:
         specifier: workspace:*
@@ -172,7 +172,7 @@ importers:
   packages/xignal-preact:
     devDependencies:
       preact:
-        specifier: ^10.0.0
+        specifier: ^10
         version: 10.26.5
       xignal:
         specifier: workspace:*
@@ -181,16 +181,16 @@ importers:
   packages/xignal-react:
     devDependencies:
       '@types/react':
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.20
       '@types/react-dom':
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.6(@types/react@18.3.20)
       react:
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.1
       react-dom:
-        specifier: ^18.0.0
+        specifier: ^18
         version: 18.3.1(react@18.3.1)
       xignal:
         specifier: workspace:*
@@ -199,7 +199,7 @@ importers:
   packages/xignal-solid:
     devDependencies:
       solid-js:
-        specifier: ^1.0.0
+        specifier: ^1
         version: 1.9.5
       xignal:
         specifier: workspace:*
@@ -208,7 +208,7 @@ importers:
   packages/xignal-svelte:
     devDependencies:
       svelte:
-        specifier: ^5.0.0
+        specifier: ^5
         version: 5.28.2
       xignal:
         specifier: workspace:*
@@ -217,7 +217,7 @@ importers:
   packages/xignal-vue:
     devDependencies:
       vue:
-        specifier: ^3.0.0
+        specifier: ^3
         version: 3.5.13(typescript@5.8.3)
       xignal:
         specifier: workspace:*

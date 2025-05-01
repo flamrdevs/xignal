@@ -2,10 +2,7 @@
 	"name": "@xignal/react",
 	"version": "0.0.7",
 	"description": "signal",
-	"keywords": [
-		"signal",
-		"react"
-	],
+	"keywords": ["signal", "react"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -19,9 +16,7 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",
@@ -31,14 +26,14 @@
 		"build": "tsdown"
 	},
 	"peerDependencies": {
-		"react": "^18.0.0",
+		"react": "^18 || ^19",
 		"xignal": "workspace:*"
 	},
 	"devDependencies": {
-		"@types/react": "^18.0.0",
-		"@types/react-dom": "^18.0.0",
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"react": "^18",
+		"react-dom": "^18",
 		"xignal": "workspace:*"
 	},
 	"publishConfig": {

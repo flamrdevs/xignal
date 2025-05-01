@@ -2,10 +2,7 @@
 	"name": "@xignal/vue",
 	"version": "0.0.7",
 	"description": "signal",
-	"keywords": [
-		"signal",
-		"vue"
-	],
+	"keywords": ["signal", "vue"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -19,9 +16,7 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",
@@ -31,11 +26,11 @@
 		"build": "tsdown"
 	},
 	"peerDependencies": {
-		"vue": "^3.0.0",
+		"vue": "^3",
 		"xignal": "workspace:*"
 	},
 	"devDependencies": {
-		"vue": "^3.0.0",
+		"vue": "^3",
 		"xignal": "workspace:*"
 	},
 	"publishConfig": {
