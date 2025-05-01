@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.7
+
+### Patch Changes
+
+- 5b3927c: update alien-signals
+- 0b6c103: docs - usage
+
 ## 0.0.6
 
 ## 0.0.5
