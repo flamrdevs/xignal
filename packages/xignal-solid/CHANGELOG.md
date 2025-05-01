@@ -1,5 +1,11 @@
 # @xignal/solid
 
+## 0.0.6
+
+### Patch Changes
+
+- xignal@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
