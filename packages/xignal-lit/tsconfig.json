@@ -17,13 +17,11 @@
 		"noUnusedParameters": true,
 		"noEmit": true,
 		"experimentalDecorators": true,
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js",
 		"baseUrl": "./",
 		"paths": {
-			"~/*": ["./src/*"]
+			"~/test/*": ["./test/*"]
 		}
 	},
-	"include": ["src", ".astro/types.d.ts"],
+	"include": ["src", "test"],
 	"exclude": ["node_modules", "dist"]
 }

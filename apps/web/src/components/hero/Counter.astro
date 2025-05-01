@@ -14,6 +14,9 @@ import CounterVue from "./Counter.vue";
     <Framework client:load id="vanilla">
       <CounterVanilla />
     </Framework>
+    <Framework client:load id="lit">
+      <counter-lit />
+    </Framework>
     <Framework client:load id="preact">
       <CounterPreact client:only="preact" />
     </Framework>
@@ -31,3 +34,7 @@ import CounterVue from "./Counter.vue";
     </Framework>
   </div>
 </div>
+
+<script>
+  import "./Counter.lit"
+</script>

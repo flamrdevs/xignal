@@ -1,0 +1,39 @@
+{
+	"name": "@xignal/lit",
+	"version": "0.0.5",
+	"description": "signal",
+	"keywords": ["signal", "lit"],
+	"license": "MIT",
+	"author": {
+		"name": "flamrdevs"
+	},
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": ["dist"],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/flamrdevs/xignal.git",
+		"directory": "packages/xignal-lit"
+	},
+	"scripts": {
+		"build": "tsdown"
+	},
+	"peerDependencies": {
+		"lit": "^3.0.0",
+		"xignal": "workspace:*"
+	},
+	"devDependencies": {
+		"lit": "^3.0.0",
+		"xignal": "workspace:*"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

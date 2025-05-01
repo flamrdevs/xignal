@@ -4,6 +4,7 @@ xignal
 ## Packages
 
 - [xignal](./packages/xignal)
+- [@xignal/lit](./packages/xignal-lit)
 - [@xignal/preact](./packages/xignal-preact)
 - [@xignal/react](./packages/xignal-react)
 - [@xignal/solid](./packages/xignal-solid)
