@@ -30,7 +30,7 @@
 		"build": "tsdown"
 	},
 	"dependencies": {
-		"alien-signals": "^2.0.0"
+		"alien-signals": "^2.0.1"
 	},
 	"publishConfig": {
 		"access": "public"
