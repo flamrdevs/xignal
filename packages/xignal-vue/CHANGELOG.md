@@ -1,5 +1,13 @@
 # @xignal/vue
 
+## 0.0.8
+
+### Patch Changes
+
+- e07c302: update dependencies specifier
+- Updated dependencies [e07c302]
+  - xignal@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes

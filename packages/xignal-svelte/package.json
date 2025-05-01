@@ -1,8 +1,11 @@
 {
 	"name": "@xignal/svelte",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "signal",
-	"keywords": ["signal", "svelte"],
+	"keywords": [
+		"signal",
+		"svelte"
+	],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -16,7 +19,9 @@
 			"default": "./dist/index.svelte.js"
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",

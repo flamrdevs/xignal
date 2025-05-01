@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.8
+
+### Patch Changes
+
+- e07c302: update dependencies specifier
+
 ## 0.0.7
 
 ### Patch Changes
