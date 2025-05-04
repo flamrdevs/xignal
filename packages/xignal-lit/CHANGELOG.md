@@ -1,5 +1,11 @@
 # @xignal/lit
 
+## 0.0.10
+
+### Patch Changes
+
+- xignal@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

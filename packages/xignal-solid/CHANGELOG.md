@@ -1,5 +1,12 @@
 # @xignal/solid
 
+## 0.0.10
+
+### Patch Changes
+
+- 333694b: Show component
+  - xignal@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes
