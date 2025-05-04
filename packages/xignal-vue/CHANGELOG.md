@@ -1,5 +1,12 @@
 # @xignal/vue
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [03b3f2b]
+  - xignal@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes
