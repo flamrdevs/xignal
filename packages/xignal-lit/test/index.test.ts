@@ -3,8 +3,8 @@ import * as vt from "vitest";
 import { delay } from "es-toolkit/promise";
 
 import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
-import { initCSSRuntimeCounter } from "@private/tests/ui";
 import { cleanupable } from "@private/tests/utils";
+import "@private/tests/styles";
 
 import { render } from "~/test/utils";
 
@@ -19,8 +19,6 @@ vt.beforeEach(() => {
 
 vt.describe("Counter", () => {
 	vt.it("should work", async () => {
-		__VITEST_BROWSER_HEADLESS_DISABLED_AND_UI_ENABLED__ && cleanup(initCSSRuntimeCounter());
-
 		cleanup(render(document.createElement("component-counter")));
 
 		await expectGetElementsToBeInTheDocument((page) => [page.getByText("count 0"), page.getByText("doubled 0")]);

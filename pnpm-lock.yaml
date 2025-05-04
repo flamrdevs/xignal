@@ -148,11 +148,7 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5
 
-  packages/private-tests:
-    devDependencies:
-      '@master/css-runtime':
-        specifier: 2.0.0-rc.67
-        version: 2.0.0-rc.67
+  packages/private-tests: {}
 
   packages/xignal:
     dependencies:
@@ -862,22 +858,6 @@ packages:
   '@manypkg/get-packages@1.1.3':
     resolution: {integrity: sha512-fo+QhuU3qE/2TQMQmbVMqaQ6EWbMhi4ABWP+O4AM1NqPBuy0OrApV5LO6BrrgnhtAHS2NH6RrVk9OL181tTi8A==}
 
-  '@master/colors@2.1.1':
-    resolution: {integrity: sha512-Fw7peV99iYPP96P02uyUpzEcD89vimilufnxDrMP0YGPIgeXkaUWwwgDaCYcoc3uaq4BRoHd4j/VXeU/M2BZFQ==}
-
-  '@master/css-devtools-hook@2.0.0-rc.68':
-    resolution: {integrity: sha512-DFXUWqQkKv8kLkkCQLK3tRixxsjS9F1dPqpgRBaVbO4QhpleWvOezK04SWML1JkZGPBLou7j1FAhzK3gMXLBFQ==}
-
-  '@master/css-runtime@2.0.0-rc.67':
-    resolution: {integrity: sha512-3Qd8D4PeRV7A3uS8VLFvPNpIbdTb0jSCM+YW8hlhFp37jF0R3gb6wGloYFD3lq3XxqN/0hB+sz0+8U4nL609Ow==}
-
-  '@master/css@2.0.0-rc.68':
-    resolution: {integrity: sha512-PG8w7a7afKX2jxSU11AtSWSt2QZme0w9aRMwKsaDcw6zpjbapIvXZbu3WbCNA5i7nKFzzaazL+N6eHsXK3makg==}
-    hasBin: true
-
-  '@master/normal.css@3.2.0':
-    resolution: {integrity: sha512-ErWm7JPFZGJVfSjCub43vBwaspTbr60hZlXyc0Kw9qp47hDB7dLjfcKj5aBDN/Hog74d4fbjrd7rGqIgRsJy8A==}
-
   '@napi-rs/wasm-runtime@0.2.9':
     resolution: {integrity: sha512-OKRBiajrrxB9ATokgEQoG87Z25c67pCpYcCwmXYX8PBftC9pBfN18gnm/fh1wurSLEKIAt+QRFLFCQISrb66Jg==}
 
@@ -1378,9 +1358,6 @@ packages:
     resolution: {integrity: sha512-FE1stRoqdHSb7RxesMfCXE8icwI1W6zGE/512ae3ZDrpkQYTTYeSyUJPRCjZd8CwVAhpDUbi1YR8pcZioFJQ/w==}
     peerDependencies:
       vite: ^5.2.0 || ^6
-
-  '@techor/extend@3.2.0':
-    resolution: {integrity: sha512-2IMYbjTODNsz9CriIdnfV5zzGHLDg6+QeDu4lGaWLw2Rfo9p7gV+npXSKKoXjZjgBE3ofDsJ2GOrbMKHe3KtuQ==}
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -4415,24 +4392,6 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@master/colors@2.1.1': {}
-
-  '@master/css-devtools-hook@2.0.0-rc.68': {}
-
-  '@master/css-runtime@2.0.0-rc.67':
-    dependencies:
-      '@master/css': 2.0.0-rc.68
-      '@master/css-devtools-hook': 2.0.0-rc.68
-
-  '@master/css@2.0.0-rc.68':
-    dependencies:
-      '@master/colors': 2.1.1
-      '@master/normal.css': 3.2.0
-      '@techor/extend': 3.2.0
-      csstype: 3.1.3
-
-  '@master/normal.css@3.2.0': {}
-
   '@napi-rs/wasm-runtime@0.2.9':
     dependencies:
       '@emnapi/core': 1.4.3
@@ -4822,8 +4781,6 @@ snapshots:
       '@tailwindcss/oxide': 4.1.5
       tailwindcss: 4.1.5
       vite: 6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.2)
-
-  '@techor/extend@3.2.0': {}
 
   '@testing-library/dom@10.4.0':
     dependencies:
