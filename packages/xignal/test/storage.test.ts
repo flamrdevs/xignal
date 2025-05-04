@@ -6,7 +6,8 @@ import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
 import { initCSSRuntimeCounter } from "@private/tests/ui";
 import { cleanupable } from "@private/tests/utils";
 
-import { signal, computed, effect } from "xignal";
+import { computed, effect } from "xignal";
+import { type Driver, NOT_FOUND, createMemoryDriver, createStorageDriver, signal } from "xignal/storage";
 
 import { render } from "~/test/utils";
 
@@ -16,10 +17,16 @@ const cleanup = cleanupable();
 
 vt.beforeEach(() => {
 	cleanup();
+	localStorage.clear();
+	sessionStorage.clear();
 });
 
 vt.describe("Counter", () => {
-	vt.it("should work", async () => {
+	vt.it.for([
+		createStorageDriver(localStorage),
+		createStorageDriver(sessionStorage),
+		createMemoryDriver(),
+	] satisfies Driver[])("should work", async (driver) => {
 		const log = vt.vi.fn();
 
 		const counter = createCounterElement();
@@ -28,7 +35,7 @@ vt.describe("Counter", () => {
 
 		cleanup(render(counter.root));
 
-		const count = signal(0);
+		const count = signal("count", 0, driver);
 		const doubled = computed(() => count.get() * 2);
 		const stopEffect = effect(() => {
 			const countValue = count.get();
@@ -36,6 +43,8 @@ vt.describe("Counter", () => {
 			log(countValue, doubledValue);
 			counter.render(countValue, doubledValue);
 		});
+
+		vt.expect(driver.get("count")).toBe(NOT_FOUND);
 
 		vt.expect(count.get()).toBe(0);
 		vt.expect(doubled.get()).toBe(0);
@@ -46,6 +55,8 @@ vt.describe("Counter", () => {
 
 		count.set(1);
 
+		vt.expect(driver.get("count")).toBe(1);
+
 		vt.expect(count.get()).toBe(1);
 		vt.expect(doubled.get()).toBe(2);
 		vt.expect(log).toBeCalledTimes(2);
@@ -54,6 +65,8 @@ vt.describe("Counter", () => {
 		__VITEST_BROWSER_HEADLESS_DISABLED_AND_UI_ENABLED__ && (await delay(1000));
 
 		count.set(2);
+
+		vt.expect(driver.get("count")).toBe(2);
 
 		vt.expect(count.get()).toBe(2);
 		vt.expect(doubled.get()).toBe(4);
@@ -64,6 +77,8 @@ vt.describe("Counter", () => {
 
 		stopEffect();
 		count.set(3);
+
+		vt.expect(driver.get("count")).toBe(3);
 
 		vt.expect(count.get()).toBe(3);
 		vt.expect(doubled.get()).toBe(6);

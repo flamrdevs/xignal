@@ -2,9 +2,7 @@
 	"name": "xignal",
 	"version": "0.0.8",
 	"description": "signal",
-	"keywords": [
-		"signal"
-	],
+	"keywords": ["signal"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -16,11 +14,13 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./storage": {
+			"types": "./dist/storage.d.ts",
+			"default": "./dist/storage.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",
