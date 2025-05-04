@@ -2,3 +2,4 @@ node_modules
 .turbo
 .astro
 dist
+__screenshots__
