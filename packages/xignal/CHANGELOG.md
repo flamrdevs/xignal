@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.9
+
+### Patch Changes
+
+- 03b3f2b: core refactor and new storage module
+
 ## 0.0.8
 
 ### Patch Changes
