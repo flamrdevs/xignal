@@ -6,6 +6,8 @@
 
 ## Usage
 
+### Basic
+
 ```ts
 
 import { signal, computed } from "xignal";

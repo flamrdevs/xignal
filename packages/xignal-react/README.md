@@ -6,6 +6,8 @@
 
 ## Usage
 
+### Basic
+
 ```ts
 
 import { signal, computed } from "xignal";
@@ -30,6 +32,21 @@ const Counter = () => {
 			<div>doubled {doubledValue}</div>
 		</div>
 	);
+};
+
+```
+
+### Show
+
+```tsx
+
+import { signal } from "xignal";
+import { Show } from "@xignal/react";
+
+const shouldShow = signal(false);
+
+const App = () => {
+	return <Show when={shouldShow}>children</Show>;
 };
 
 ```
