@@ -1,5 +1,6 @@
 # xignal
-xignal
+
+signals library
 
 ## Packages
 
@@ -10,6 +11,10 @@ xignal
 - [@xignal/solid](./packages/xignal-solid)
 - [@xignal/svelte](./packages/xignal-svelte)
 - [@xignal/vue](./packages/xignal-vue)
+
+## Install
+
+`npm i xignal`
 
 ## Usage
 
@@ -33,6 +38,12 @@ count.get(); // 2
 doubled.get(); // 4
 
 ```
+
+## Acknowledgements
+
+### [alien-signals](https://github.com/stackblitz/alien-signals)
+
+### [nanostores](https://github.com/nanostores/nanostores)
 
 ## License
 
