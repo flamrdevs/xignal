@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.11
+
+### Patch Changes
+
+- a2674a2: test core
+- 016eff1: new utilities - update, batch and untrack
+
 ## 0.0.10
 
 ## 0.0.9
