@@ -1,5 +1,14 @@
 # @xignal/solid
 
+## 0.0.13
+
+### Patch Changes
+
+- 5769927: new useSignalEffect hook
+- 8c714b4: refactor use signal value
+- Updated dependencies [9e1483c]
+  - xignal@0.0.13
+
 ## 0.0.12
 
 ### Patch Changes

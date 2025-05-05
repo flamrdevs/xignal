@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.13
+
+### Patch Changes
+
+- 9e1483c: effect cleanup
+
 ## 0.0.12
 
 ### Patch Changes
