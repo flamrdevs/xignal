@@ -21,6 +21,7 @@
 				"noNonNullAssertion": "info"
 			},
 			"suspicious": {
+				"noConfusingVoidType": "info",
 				"noExplicitAny": "info"
 			}
 		}
