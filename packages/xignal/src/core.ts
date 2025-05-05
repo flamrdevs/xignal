@@ -30,3 +30,30 @@ export function computed<T>(getter: () => T): Computed<T> {
 export function effect(fn: () => void): StopEffect {
 	return alien.effect(fn);
 }
+
+export type UpdateActionFn<T> = (previousValue: T) => T;
+export type UpdateAction<T> = T | UpdateActionFn<T>;
+
+export function update<T>(signal: Signal<T>, action: UpdateAction<T>): T {
+	const nextValue = typeof action === "function" ? (action as UpdateActionFn<T>)(signal.get()) : action;
+	signal.set(nextValue);
+	return nextValue;
+}
+
+export function batch(fn: () => void): void {
+	alien.startBatch();
+	try {
+		fn();
+	} finally {
+		alien.endBatch();
+	}
+}
+
+export function untrack<T>(fn: () => T): T {
+	alien.pauseTracking();
+	try {
+		return fn();
+	} finally {
+		alien.resumeTracking();
+	}
+}

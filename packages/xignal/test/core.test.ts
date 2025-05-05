@@ -1,14 +1,14 @@
 import * as vt from "vitest";
 
-import { signal, computed, effect } from "xignal";
+import { signal, computed, effect, update, batch, untrack } from "xignal";
 
 vt.describe("core", () => {
-	vt.it("should work", async () => {
+	vt.it("should work", () => {
 		const _signal = signal();
 
-		const computedFn = vt.vi.fn(() => _signal.get());
+		const computedGetter = vt.vi.fn(() => _signal.get());
 
-		const _computed = computed(computedFn);
+		const _computed = computed(computedGetter);
 
 		const effectFn = vt.vi.fn(() => {
 			_computed.get();
@@ -21,7 +21,7 @@ vt.describe("core", () => {
 			cb(vt.expect(_computed.get()));
 		};
 		const expectCalledTimes = (computedTimes: number, effectTimes: number) => {
-			vt.expect(computedFn).toHaveBeenCalledTimes(computedTimes);
+			vt.expect(computedGetter).toHaveBeenCalledTimes(computedTimes);
 			vt.expect(effectFn).toHaveBeenCalledTimes(effectTimes);
 		};
 
@@ -79,5 +79,101 @@ vt.describe("core", () => {
 
 		expectValues((t) => t.toBe(1));
 		expectCalledTimes(11, 9);
+	});
+
+	vt.describe("update()", () => {
+		vt.it("should work", () => {
+			const n = signal(0);
+
+			vt.expect(n.get()).toBe(0);
+
+			let next = update(n, 1);
+
+			vt.expect(n.get()).toBe(1);
+			vt.expect(next).toBe(1);
+
+			next = update(n, (n) => n + 1);
+
+			vt.expect(n.get()).toBe(2);
+			vt.expect(next).toBe(2);
+		});
+	});
+
+	vt.describe("batch()", () => {
+		vt.it("should work", () => {
+			const n1 = signal(0);
+			const n2 = signal(0);
+
+			const computedGetter = vt.vi.fn(() => n1.get() + n2.get());
+
+			const c = computed(computedGetter);
+
+			const effectFn = vt.vi.fn(() => {
+				n1.get();
+				n2.get();
+			});
+
+			effect(effectFn);
+
+			vt.expect(c.get()).toBe(0);
+			vt.expect(computedGetter).toHaveBeenCalledOnce();
+			vt.expect(effectFn).toHaveBeenCalledOnce();
+
+			batch(() => {
+				n1.set(1);
+				n2.set(-1);
+			});
+
+			vt.expect(c.get()).toBe(0);
+			vt.expect(computedGetter).toHaveBeenCalledTimes(2);
+			vt.expect(effectFn).toHaveBeenCalledTimes(2);
+
+			batch(() => {
+				n1.set(10);
+				n2.set(10);
+			});
+
+			vt.expect(c.get()).toBe(20);
+			vt.expect(computedGetter).toHaveBeenCalledTimes(3);
+			vt.expect(effectFn).toHaveBeenCalledTimes(3);
+		});
+	});
+
+	vt.describe("untrack()", () => {
+		vt.it("should work", () => {
+			const n1 = signal(0);
+			const n2 = signal(0);
+
+			const computedGetter = vt.vi.fn(() => untrack(() => n1.get() + n2.get()));
+
+			const c = computed(computedGetter);
+
+			const effectFn = vt.vi.fn(() => {
+				untrack(() => {
+					n1.get();
+					n2.get();
+				});
+			});
+
+			effect(effectFn);
+
+			vt.expect(c.get()).toBe(0);
+			vt.expect(computedGetter).toHaveBeenCalledOnce();
+			vt.expect(effectFn).toHaveBeenCalledOnce();
+
+			n1.set(1);
+			n2.set(-1);
+
+			vt.expect(c.get()).toBe(0);
+			vt.expect(computedGetter).toHaveBeenCalledOnce();
+			vt.expect(effectFn).toHaveBeenCalledOnce();
+
+			n1.set(10);
+			n2.set(10);
+
+			vt.expect(c.get()).toBe(0);
+			vt.expect(computedGetter).toHaveBeenCalledOnce();
+			vt.expect(effectFn).toHaveBeenCalledOnce();
+		});
 	});
 });
