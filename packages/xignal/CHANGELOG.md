@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.12
+
+### Patch Changes
+
+- 9b688a4: update docs
+
 ## 0.0.11
 
 ### Patch Changes
