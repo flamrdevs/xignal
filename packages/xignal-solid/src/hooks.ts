@@ -5,13 +5,13 @@ import { effect } from "xignal";
 import type { ReadonlySignal } from "xignal";
 
 export function useSignalValue<T>(signal: ReadonlySignal<T>): Accessor<T> {
-	const [state, setState] = createSignal<T>(signal.get());
+	const [value, setValue] = createSignal<T>(signal.get());
 
 	onCleanup(
 		effect(() => {
-			setState(() => signal.get());
+			setValue(() => signal.get());
 		}),
 	);
 
-	return state;
+	return value;
 }
