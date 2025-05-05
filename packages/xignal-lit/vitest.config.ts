@@ -10,7 +10,7 @@ export default defineProject({
 	},
 	plugins: [config.plugins],
 	test: {
-		include: ["test/**/*.test.ts"],
+		include: ["test/**/*.spec.ts"],
 		...config.test,
 	},
 });
