@@ -81,6 +81,61 @@ vt.describe("core", () => {
 		expectCalledTimes(11, 9);
 	});
 
+	vt.describe("effect cleanup", () => {
+		vt.beforeEach(() => {
+			vt.vi.useFakeTimers();
+		});
+
+		vt.afterEach(() => {
+			vt.vi.restoreAllMocks();
+		});
+
+		vt.it("should work", () => {
+			const ms = signal(1000);
+
+			const timeoutFn = vt.vi.fn();
+
+			const effectFn = vt.vi.fn(() => {
+				const timeout = setTimeout(timeoutFn, ms.get());
+				return () => {
+					clearTimeout(timeout);
+				};
+			});
+
+			const _stopEffect = effect(effectFn);
+
+			vt.expect(timeoutFn).not.toHaveBeenCalled();
+			vt.expect(effectFn).toHaveBeenCalledOnce();
+
+			vt.vi.advanceTimersToNextTimer();
+
+			vt.expect(timeoutFn).toHaveBeenCalledOnce();
+			vt.expect(effectFn).toHaveBeenCalledOnce();
+
+			ms.set(2000);
+
+			vt.expect(timeoutFn).toHaveBeenCalledOnce();
+			vt.expect(effectFn).toHaveBeenCalledTimes(2);
+
+			vt.vi.advanceTimersToNextTimer();
+
+			vt.expect(timeoutFn).toHaveBeenCalledTimes(2);
+			vt.expect(effectFn).toHaveBeenCalledTimes(2);
+
+			ms.set(3000);
+
+			vt.expect(timeoutFn).toHaveBeenCalledTimes(2);
+			vt.expect(effectFn).toHaveBeenCalledTimes(3);
+
+			_stopEffect();
+
+			vt.vi.advanceTimersToNextTimer();
+
+			vt.expect(timeoutFn).toHaveBeenCalledTimes(2);
+			vt.expect(effectFn).toHaveBeenCalledTimes(3);
+		});
+	});
+
 	vt.describe("update()", () => {
 		vt.it("should work", () => {
 			const n = signal(0);

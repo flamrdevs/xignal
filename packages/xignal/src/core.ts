@@ -27,8 +27,20 @@ export function computed<T>(getter: () => T): Computed<T> {
 	return { get: _computed };
 }
 
-export function effect(fn: () => void): StopEffect {
-	return alien.effect(fn);
+export type EffectFn = () => void | (() => void);
+
+export function effect(fn: EffectFn): StopEffect {
+	let cleanup: void | (() => void);
+
+	const stop = alien.effect(() => {
+		cleanup?.();
+		cleanup = fn();
+	});
+
+	return () => {
+		stop();
+		cleanup?.();
+	};
 }
 
 export type UpdateActionFn<T> = (previousValue: T) => T;
