@@ -2,7 +2,16 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
 	test: {
-		workspace: ["packages/*/vitest.config.ts"],
+		workspace: [
+			"packages/*/vitest.config.ts",
+			{
+				test: {
+					include: ["packages/*/test/**/*.test.ts"],
+					name: "node",
+					environment: "node",
+				},
+			},
+		],
 		pool: "threads",
 		testTimeout: 10000,
 	},
