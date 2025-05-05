@@ -1,5 +1,5 @@
 ---
-import Framework from "./Framework.solid";
+import Framework, { Interval } from "./Framework.solid";
 
 import CounterVanilla from "./Counter.vanilla.astro";
 import CounterPreact from "./Counter.preact";
@@ -32,6 +32,7 @@ import CounterVue from "./Counter.vue";
     <Framework client:load id="vue">
       <CounterVue client:only="vue" />
     </Framework>
+    <Interval client:load />
   </div>
 </div>
 

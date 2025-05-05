@@ -1,9 +1,9 @@
-import type { ParentProps } from "solid-js";
+import { createEffect, createSignal, onCleanup, type ParentProps } from "solid-js";
 import { createDynamic } from "solid-js/web";
 
 import clsx from "clsx";
 
-import { count } from "./counter";
+import { handleUpdate } from "./counter";
 
 const ID = {
 	vanilla: (props: { class?: string }) => (
@@ -189,13 +189,10 @@ const Framework = (props: ParentProps<{ id: keyof typeof ID; class?: string }>) 
 		<button
 			type="button"
 			class={clsx(
-				"relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-zinc-900 active:bg-zinc-800 font-mono font-medium text-2xl md:text-3xl xl:text-4xl text-zinc-100 border border-zinc-600 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 select-none",
+				"relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-zinc-900/25 active:bg-zinc-900/75 font-mono font-medium text-2xl md:text-3xl xl:text-4xl text-zinc-100 border border-zinc-800 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 select-none active:scale-99 transition",
 				props.class,
 			)}
-			onClick={() => {
-				const currentCount = count.get();
-				count.set(currentCount < 10 ? currentCount + 1 : 0);
-			}}
+			onClick={handleUpdate}
 		>
 			<div class="relative h-2" />
 
@@ -204,6 +201,36 @@ const Framework = (props: ParentProps<{ id: keyof typeof ID; class?: string }>) 
 			<div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
 				{createDynamic(() => ID[props.id], { class: "size-6 md:size-9 xl:size-12" })}
 			</div>
+		</button>
+	);
+};
+
+export const Interval = () => {
+	const [active, setActive] = createSignal(false);
+
+	let cleanup: (() => void) | undefined;
+
+	createEffect(() => {
+		if (active()) {
+			const interval = setInterval(handleUpdate, 500);
+			cleanup = () => clearInterval(interval);
+		} else {
+			cleanup?.();
+		}
+	});
+
+	onCleanup(() => {
+		cleanup?.();
+	});
+
+	return (
+		<button
+			type="button"
+			class="relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-zinc-900/25 active:bg-zinc-900/75 font-mono font-medium text-base md:text-lg xl:text-xl text-zinc-100 border border-zinc-800 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 select-none active:scale-99 transition"
+			onClick={() => setActive((v) => !v)}
+		>
+			<span>Interval</span>
+			<span>{active() ? "On" : "Off"}</span>
 		</button>
 	);
 };
