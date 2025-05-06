@@ -1,5 +1,13 @@
 # @xignal/svelte
 
+## 0.0.14
+
+### Patch Changes
+
+- bf8837f: refactor tests
+- Updated dependencies [bf8837f]
+  - xignal@0.0.14
+
 ## 0.0.13
 
 ### Patch Changes
