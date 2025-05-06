@@ -1,5 +1,0 @@
----
-"xignal": patch
----
-
-effect cleanup
