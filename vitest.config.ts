@@ -6,7 +6,7 @@ export default defineConfig({
 			"packages/*/vitest.config.ts",
 			{
 				test: {
-					include: ["packages/*/test/**/*.test.ts"],
+					include: ["packages/*/test/**/*.node.test.ts"],
 					name: "node",
 					environment: "node",
 				},

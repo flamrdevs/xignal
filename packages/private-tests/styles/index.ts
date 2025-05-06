@@ -1,1 +1,1 @@
-import "./counter.css";
+import "./apps";

@@ -12,7 +12,7 @@ export default defineProject({
 	},
 	plugins: [config.plugins, svelte({ preprocess: vitePreprocess() })],
 	test: {
-		include: ["test/**/*.spec.ts"],
+		include: ["test/**/*.browser.test.ts"],
 		...config.test,
 	},
 });

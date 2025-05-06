@@ -12,7 +12,7 @@ export default defineProject({
 	},
 	plugins: [config.plugins, react()],
 	test: {
-		include: ["test/**/*.spec.tsx"],
+		include: ["test/**/*.browser.test.tsx"],
 		...config.test,
 	},
 });
