@@ -7,3 +7,5 @@ onlyBuiltDependencies:
   - esbuild
   - rolldown
   - sharp
+
+shellEmulator: true
