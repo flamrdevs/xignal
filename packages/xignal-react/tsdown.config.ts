@@ -1,8 +1,3 @@
-import { defineConfig } from "tsdown";
+import { define } from "../../tsdown.ts";
 
-import { config } from "../../tsdown.ts";
-
-export default defineConfig({
-	entry: ["src/index.ts"],
-	...config,
-});
+export default define(["src/index.ts"]);

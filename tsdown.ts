@@ -1,12 +1,15 @@
-import type { UserConfig } from "tsdown";
+import { defineConfig } from "tsdown";
 
-export const config = {
-	format: "esm",
-	target: "esnext",
-	platform: "neutral",
-	minify: true,
-	dts: {
-		isolatedDeclarations: true,
-	},
-	clean: true,
-} satisfies UserConfig;
+export const define = (entry: string[]) => {
+	return defineConfig({
+		entry,
+		format: "esm",
+		target: "esnext",
+		platform: "neutral",
+		minify: false,
+		dts: {
+			isolatedDeclarations: true,
+		},
+		clean: true,
+	});
+};
