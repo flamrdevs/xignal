@@ -1,5 +1,12 @@
 # @xignal/lit
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [c585b78]
+  - xignal@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes

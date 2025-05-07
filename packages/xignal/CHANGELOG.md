@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.15
+
+### Patch Changes
+
+- c585b78: storage refactor and new standard schema module
+
 ## 0.0.14
 
 ### Patch Changes
