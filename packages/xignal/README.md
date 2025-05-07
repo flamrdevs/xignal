@@ -90,6 +90,20 @@ const memoryStorageSignalY = signal("y", 0, memoryStorageDriver);
 
 ```
 
+### Standard Schema
+
+```ts
+
+import { signal, computed } from "xignal/standard-schema";
+// import { signal } from "xignal/standard-schema/storage";
+
+import { z } from "zod";
+
+const count = signal(z.number(), 1);
+const doubled = computed(z.number(), () => count.get() * 2);
+
+```
+
 ## License
 
 MIT

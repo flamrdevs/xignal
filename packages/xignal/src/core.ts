@@ -22,7 +22,7 @@ export function signal<T>(initialValue?: T): Signal<T | undefined> {
 	return { get: _signal, set: _signal };
 }
 
-export function computed<T>(getter: () => T): Computed<T> {
+export function computed<T>(getter: (previousValue?: T | undefined) => T): Computed<T> {
 	const _computed = alien.computed(getter);
 	return { get: _computed };
 }

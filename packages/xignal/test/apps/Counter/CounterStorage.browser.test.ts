@@ -7,7 +7,7 @@ import { cleanupable } from "@private/tests/utils";
 import "@private/tests/styles";
 
 import { computed, effect } from "xignal";
-import { type Driver, NOT_FOUND, createMemoryDriver, createStorageDriver, signal } from "xignal/storage";
+import { type Driver, createMemoryDriver, createStorageDriver, signal } from "xignal/storage";
 
 import { render } from "~/test/utils";
 
@@ -42,7 +42,7 @@ vt.describe("CounterStorage", () => {
 			counter.render(countValue, doubledValue);
 		});
 
-		vt.expect(driver.get("count")).toBe(NOT_FOUND);
+		vt.expect(driver.get("count")).toBeUndefined();
 
 		vt.expect(count.get()).toBe(0);
 		vt.expect(doubled.get()).toBe(0);
