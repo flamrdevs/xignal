@@ -11,5 +11,6 @@ export const define = (entry: string[]) => {
 			isolatedDeclarations: true,
 		},
 		clean: true,
+		publint: true,
 	});
 };

@@ -10,9 +10,7 @@
 		"test": "VITEST_BROWSER_HEADLESS=true vitest run",
 		"pretestui": "pnpm run build:packages",
 		"testui": "VITEST_UI=true vitest --ui",
-		"prepublint": "pnpm run build:packages",
-		"publint": "pnpm --parallel --filter=xignal --filter=\"@xignal/*\" exec publint",
-		"prerelease": "pnpm run publint",
+		"prerelease": "pnpm run build:packages",
 		"release": "pnpm publish -r",
 		"format": "biome check --write",
 		"inspect": "pnpx node-modules-inspector"
