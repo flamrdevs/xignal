@@ -43,7 +43,7 @@
 	},
 	"dependencies": {
 		"@standard-schema/spec": "^1.0.0",
-		"alien-signals": "^2"
+		"alien-signals": "^2.0.4"
 	},
 	"publishConfig": {
 		"access": "public"

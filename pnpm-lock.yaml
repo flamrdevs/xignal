@@ -162,8 +162,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       alien-signals:
-        specifier: ^2
-        version: 2.0.1
+        specifier: ^2.0.4
+        version: 2.0.4
 
   packages/xignal-lit:
     devDependencies:
@@ -1532,8 +1532,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  alien-signals@2.0.1:
-    resolution: {integrity: sha512-fvRLEA4BoO78crQ9otbxMfN/uCAgQsscaNLeAd7S3gzKjDJdsXuzAI1Cl3TFqFxbp4BdcyUJsH15NHjuvB/nvQ==}
+  alien-signals@2.0.4:
+    resolution: {integrity: sha512-3QsszrrJN/VtQxyQcc0I+Mn758aGB5WCBCm55x9twfRimD9fWsQ/3iyVmUJwCdr1ovnmT7wRX1sq4j8sQiTixA==}
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -5117,7 +5117,7 @@ snapshots:
 
   acorn@8.14.1: {}
 
-  alien-signals@2.0.1: {}
+  alien-signals@2.0.4: {}
 
   ansi-align@3.0.1:
     dependencies:
