@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.17
+
+### Patch Changes
+
+- 80fe72b: fix test utils
+- 83a632c: update alien-signals
+
 ## 0.0.16
 
 ### Patch Changes
