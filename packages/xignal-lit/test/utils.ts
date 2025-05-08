@@ -1,3 +1,9 @@
+import * as vt from "vitest";
+
+import { cleanupable } from "@private/tests/utils";
+
+const cleanup = cleanupable();
+
 export const render = (element: HTMLElement) => {
 	document.body.appendChild(element);
 
@@ -9,3 +15,12 @@ export const render = (element: HTMLElement) => {
 		}
 	};
 };
+
+render.beforeEachCleanup = (fn?: () => void) => {
+	vt.beforeEach(() => {
+		cleanup();
+		fn?.();
+	});
+};
+
+render.addCleanup = (fn: () => void) => cleanup(fn);

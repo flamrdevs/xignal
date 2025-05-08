@@ -3,7 +3,6 @@ import * as vt from "vitest";
 import { delay } from "es-toolkit/promise";
 
 import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
-import { cleanupable } from "@private/tests/utils";
 import "@private/tests/styles";
 
 import { computed, effect } from "xignal";
@@ -13,10 +12,7 @@ import { render } from "~/test/utils";
 
 import { createCounterElement } from "./elements";
 
-const cleanup = cleanupable();
-
-vt.beforeEach(() => {
-	cleanup();
+render.beforeEachCleanup(() => {
 	localStorage.clear();
 	sessionStorage.clear();
 });
@@ -31,7 +27,7 @@ vt.describe("CounterStorage", () => {
 
 		const counter = createCounterElement();
 
-		cleanup(render(counter.root));
+		render(counter.root);
 
 		const count = signal("count", 0, driver);
 		const doubled = computed(() => count.get() * 2);

@@ -3,7 +3,6 @@ import * as vt from "vitest";
 import { delay } from "es-toolkit/promise";
 
 import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
-import { cleanupable } from "@private/tests/utils";
 import "@private/tests/styles";
 
 import { signal, computed, effect } from "xignal";
@@ -12,19 +11,13 @@ import { render } from "~/test/utils";
 
 import { createCounterElement } from "./elements";
 
-const cleanup = cleanupable();
-
-vt.beforeEach(() => {
-	cleanup();
-});
-
 vt.describe("Counter", () => {
 	vt.it("should work", async () => {
 		const log = vt.vi.fn();
 
 		const counter = createCounterElement();
 
-		cleanup(render(counter.root));
+		render(counter.root);
 
 		const count = signal(0);
 		const doubled = computed(() => count.get() * 2);

@@ -1,6 +1,12 @@
+import * as vt from "vitest";
+
 import { act } from "react";
 import type { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
+
+import { cleanupable } from "@private/tests/utils";
+
+const cleanup = cleanupable();
 
 let init = false;
 
@@ -29,3 +35,12 @@ export const render = (children: ReactNode) => {
 		}
 	};
 };
+
+render.beforeEachCleanup = (fn?: () => void) => {
+	vt.beforeEach(() => {
+		cleanup();
+		fn?.();
+	});
+};
+
+render.addCleanup = (fn: () => void) => cleanup(fn);

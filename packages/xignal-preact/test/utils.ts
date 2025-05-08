@@ -1,5 +1,11 @@
+import * as vt from "vitest";
+
 import { render as _render } from "preact";
 import type { ComponentChild } from "preact";
+
+import { cleanupable } from "@private/tests/utils";
+
+const cleanup = cleanupable();
 
 export const render = (vnode: ComponentChild) => {
 	const container = document.createElement("div");
@@ -16,3 +22,12 @@ export const render = (vnode: ComponentChild) => {
 		}
 	};
 };
+
+render.beforeEachCleanup = (fn?: () => void) => {
+	vt.beforeEach(() => {
+		cleanup();
+		fn?.();
+	});
+};
+
+render.addCleanup = (fn: () => void) => cleanup(fn);
