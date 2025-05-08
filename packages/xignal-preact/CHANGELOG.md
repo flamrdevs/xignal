@@ -1,5 +1,12 @@
 # @xignal/preact
 
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies [9437e6a]
+  - xignal@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes
