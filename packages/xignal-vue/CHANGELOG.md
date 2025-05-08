@@ -1,5 +1,15 @@
 # @xignal/vue
 
+## 0.0.17
+
+### Patch Changes
+
+- 80fe72b: fix test utils
+- e07f9a1: new useSignalEffect hook
+- Updated dependencies [80fe72b]
+- Updated dependencies [83a632c]
+  - xignal@0.0.17
+
 ## 0.0.16
 
 ### Patch Changes

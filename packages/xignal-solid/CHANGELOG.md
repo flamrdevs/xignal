@@ -1,5 +1,14 @@
 # @xignal/solid
 
+## 0.0.17
+
+### Patch Changes
+
+- 80fe72b: fix test utils
+- Updated dependencies [80fe72b]
+- Updated dependencies [83a632c]
+  - xignal@0.0.17
+
 ## 0.0.16
 
 ### Patch Changes
