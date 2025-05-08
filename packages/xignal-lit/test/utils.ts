@@ -8,12 +8,14 @@ export const render = (element: HTMLElement) => {
 	document.body.appendChild(element);
 
 	let removed = false;
-	return () => {
+	const clean = () => {
 		if (!removed) {
 			removed = true;
 			document.body.removeChild(element);
 		}
 	};
+	cleanup(clean);
+	return clean;
 };
 
 render.beforeEachCleanup = (fn?: () => void) => {

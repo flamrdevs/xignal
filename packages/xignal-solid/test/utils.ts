@@ -14,13 +14,15 @@ export const render = (code: () => JSX.Element) => {
 	const dispose = _render(code, container);
 
 	let removed = false;
-	return () => {
+	const clean = () => {
 		if (!removed) {
 			removed = true;
 			dispose();
 			document.body.removeChild(container);
 		}
 	};
+	cleanup(clean);
+	return clean;
 };
 
 render.beforeEachCleanup = (fn?: () => void) => {

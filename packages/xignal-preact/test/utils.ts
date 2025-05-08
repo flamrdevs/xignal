@@ -14,13 +14,15 @@ export const render = (vnode: ComponentChild) => {
 	_render(vnode, container);
 
 	let removed = false;
-	return () => {
+	const clean = () => {
 		if (!removed) {
 			removed = true;
 			_render(null, container);
 			document.body.removeChild(container);
 		}
 	};
+	cleanup(clean);
+	return clean;
 };
 
 render.beforeEachCleanup = (fn?: () => void) => {

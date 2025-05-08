@@ -25,7 +25,7 @@ export const render = (children: ReactNode) => {
 	});
 
 	let removed = false;
-	return () => {
+	const clean = () => {
 		if (!removed) {
 			removed = true;
 			act(() => {
@@ -34,6 +34,8 @@ export const render = (children: ReactNode) => {
 			document.body.removeChild(container);
 		}
 	};
+	cleanup(clean);
+	return clean;
 };
 
 render.beforeEachCleanup = (fn?: () => void) => {

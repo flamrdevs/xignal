@@ -14,13 +14,15 @@ export const mount = (component: ComponentType<SvelteComponent<any>>) => {
 	const mounted = _mount(component, { target: container });
 
 	let removed = false;
-	return () => {
+	const clean = () => {
 		if (!removed) {
 			removed = true;
 			unmount(mounted, { outro: true });
 			document.body.removeChild(container);
 		}
 	};
+	cleanup(clean);
+	return clean;
 };
 
 mount.beforeEachCleanup = (fn?: () => void) => {

@@ -15,13 +15,15 @@ export const mount = (component: Component) => {
 	app.mount(container);
 
 	let removed = false;
-	return () => {
+	const clean = () => {
 		if (!removed) {
 			removed = true;
 			app.unmount();
 			document.body.removeChild(container);
 		}
 	};
+	cleanup(clean);
+	return clean;
 };
 
 mount.beforeEachCleanup = (fn?: () => void) => {
