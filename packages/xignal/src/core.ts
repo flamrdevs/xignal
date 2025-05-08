@@ -62,10 +62,10 @@ export function batch(fn: () => void): void {
 }
 
 export function untrack<T>(fn: () => T): T {
-	alien.pauseTracking();
+	const currentSub = alien.setCurrentSub(undefined);
 	try {
 		return fn();
 	} finally {
-		alien.resumeTracking();
+		alien.setCurrentSub(currentSub);
 	}
 }
