@@ -31,15 +31,20 @@ export type EffectFn = () => void | (() => void);
 
 export function effect(fn: EffectFn): StopEffect {
 	let cleanup: void | (() => void);
+	const maybeCleanup = () => {
+		try {
+			cleanup?.();
+		} catch (error) {}
+	};
 
 	const stop = alien.effect(() => {
-		cleanup?.();
+		maybeCleanup();
 		cleanup = fn();
 	});
 
 	return () => {
 		stop();
-		cleanup?.();
+		maybeCleanup();
 	};
 }
 
