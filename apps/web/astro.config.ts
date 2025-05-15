@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 
 import preact from "@astrojs/preact";
 import react from "@astrojs/react";
@@ -16,6 +16,9 @@ export default defineConfig({
 		svelte({ preprocess: vitePreprocess() }),
 		vue(),
 	],
+	image: {
+		service: passthroughImageService(),
+	},
 	vite: {
 		plugins: [tailwindcss()],
 	},
