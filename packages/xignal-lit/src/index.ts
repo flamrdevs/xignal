@@ -8,7 +8,7 @@ export class UseSignalValue<T> implements ReactiveController {
 
 	constructor(
 		private host: ReactiveControllerHost,
-		private signal: xignal.ReadonlySignal<T>,
+		protected signal: xignal.ReadonlySignal<T>,
 	) {
 		host.addController(this);
 		this._value = this.signal.get();
@@ -27,5 +27,18 @@ export class UseSignalValue<T> implements ReactiveController {
 
 	get value(): T {
 		return this._value;
+	}
+}
+
+export class UseSignalState<T> extends UseSignalValue<T> {
+	constructor(
+		host: ReactiveControllerHost,
+		protected signal: xignal.Signal.State<T>,
+	) {
+		super(host, signal);
+	}
+
+	update(action: xignal.UpdateAction<T>): T {
+		return xignal.update(this.signal, action);
 	}
 }

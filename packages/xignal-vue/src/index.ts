@@ -3,7 +3,9 @@ import type { ShallowRef } from "vue";
 
 import * as xignal from "xignal";
 
-export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): Readonly<ShallowRef<T>> {
+export type ReadValue<T> = Readonly<ShallowRef<T>>;
+
+export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): ReadValue<T> {
 	const value: ShallowRef<T> = shallowRef<T>(signal.get());
 
 	onUnmounted(
@@ -13,6 +15,12 @@ export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): Readonly<Sh
 	);
 
 	return shallowReadonly(value);
+}
+
+export function useSignalState<T>(
+	signal: xignal.Signal.State<T>,
+): [ReadValue<T>, (action: xignal.UpdateAction<T>) => T] {
+	return [useSignalValue<T>(signal), (action) => xignal.update(signal, action)];
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn): void {
