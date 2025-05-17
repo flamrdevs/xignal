@@ -1,5 +1,16 @@
 # @xignal/solid
 
+## 0.0.19
+
+### Patch Changes
+
+- e8c06d7: refactor: rename function name from signal to state
+- b59796d: rename read signal property (lit,svelte) and many variables
+- 7d58715: new useSignalEffect hook
+- Updated dependencies [e8c06d7]
+- Updated dependencies [58cd2d7]
+  - xignal@0.0.19
+
 ## 0.0.18
 
 ### Patch Changes

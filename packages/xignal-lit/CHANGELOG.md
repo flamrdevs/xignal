@@ -1,5 +1,17 @@
 # @xignal/lit
 
+## 0.0.19
+
+### Patch Changes
+
+- 7d58715: new UseSignalEffect hook
+- e8c06d7: refactor: rename function name from signal to state
+- 823b1d1: refactor test
+- b59796d: rename read signal property (lit,svelte) and many variables
+- Updated dependencies [e8c06d7]
+- Updated dependencies [58cd2d7]
+  - xignal@0.0.19
+
 ## 0.0.18
 
 ### Patch Changes

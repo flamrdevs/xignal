@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.19
+
+### Patch Changes
+
+- e8c06d7: refactor: rename function name from signal to state
+- 58cd2d7: update alien-signals
+
 ## 0.0.18
 
 ### Patch Changes
