@@ -31,9 +31,9 @@
 		"xignal": "workspace:*"
 	},
 	"devDependencies": {
-		"@tailwindcss/vite": "^4.1.5",
+		"@tailwindcss/vite": "^4.1.7",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
-		"tailwindcss": "^4.1.5"
+		"tailwindcss": "^4.1.7"
 	}
 }

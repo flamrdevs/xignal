@@ -10,7 +10,7 @@ onlyBuiltDependencies:
 overrides:
   "@babel/helper-module-imports": "7.27.1"
   "@babel/parser": "7.27.2"
-  "@vitejs/plugin-vue": "5.2.3"
+  "@vitejs/plugin-vue": "5.2.4"
   "fs-extra": "8.1.0"
   "vite": "6.3.5"
   "zod": "3.24.4"
