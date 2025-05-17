@@ -41,6 +41,8 @@ doubled.get(); // 4
 
 ## Acknowledgements
 
+### [proposal-signals](https://github.com/tc39/proposal-signals)
+
 ### [alien-signals](https://github.com/stackblitz/alien-signals)
 
 ### [nanostores](https://github.com/nanostores/nanostores)
