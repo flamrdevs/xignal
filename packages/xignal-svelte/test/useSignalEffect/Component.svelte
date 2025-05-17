@@ -1,12 +1,12 @@
 <script lang="ts">
 import { useSignalEffect } from "@xignal/svelte";
 
-import { global, fnEffect, fnEffectCleanup } from "./module";
+import { count, fnEffect, fnEffectCleanup } from "./module";
 
 let local = $state(0);
 
 useSignalEffect(() => {
-	fnEffect(global.get(), local);
+	fnEffect(count.get(), local);
 	return fnEffectCleanup;
 });
 

@@ -1,3 +1,3 @@
 import * as xignal from "xignal";
 
-export const global = xignal.state(0);
+export const count = xignal.state(0);

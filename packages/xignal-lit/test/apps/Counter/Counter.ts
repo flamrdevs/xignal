@@ -15,8 +15,8 @@ class Counter extends LitElement {
 	render() {
 		return html`
       <div class="counter-container">
-			  <div class="counter-count">count ${this.countValue.value}</div>
-			  <div class="counter-doubled">doubled ${this.doubledValue.value}</div>
+			  <div class="counter-count">count ${this.countValue.get}</div>
+			  <div class="counter-doubled">doubled ${this.doubledValue.get}</div>
 		  </div>
     `;
 	}

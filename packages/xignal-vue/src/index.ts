@@ -6,15 +6,15 @@ import * as xignal from "xignal";
 export type ReadValue<T> = Readonly<ShallowRef<T>>;
 
 export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): ReadValue<T> {
-	const value: ShallowRef<T> = shallowRef<T>(signal.get());
+	const ref: ShallowRef<T> = shallowRef<T>(signal.get());
 
 	onUnmounted(
 		xignal.effect(() => {
-			value.value = signal.get();
+			ref.value = signal.get();
 		}),
 	);
 
-	return shallowReadonly(value);
+	return shallowReadonly(ref);
 }
 
 export function useSignalState<T>(

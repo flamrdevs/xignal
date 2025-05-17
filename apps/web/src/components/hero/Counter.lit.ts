@@ -10,7 +10,7 @@ class Counter extends LitElement {
 	private state = new UseSignalValue(this, count);
 
 	render() {
-		return html`<div>${this.state.value}</div>`;
+		return html`<div>${this.state.get}</div>`;
 	}
 
 	createRenderRoot() {

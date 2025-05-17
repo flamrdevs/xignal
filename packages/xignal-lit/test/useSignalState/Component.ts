@@ -4,14 +4,14 @@ import { customElement } from "lit/decorators.js";
 import * as xignal from "xignal";
 import { UseSignalState } from "@xignal/lit";
 
-export const global = xignal.state(0);
+export const count = xignal.state(0);
 
 @customElement("component-main")
 class Component extends LitElement {
-	private globalValue = new UseSignalState(this, global);
+	private countState = new UseSignalState(this, count);
 
 	private onClick() {
-		this.globalValue.update((n) => n + 1);
+		this.countState.update((n) => n + 1);
 	}
 
 	render() {
@@ -20,7 +20,7 @@ class Component extends LitElement {
 			  type="button"
 			  @click="${this.onClick}"
 		  >
-			  click : ${this.globalValue.value}
+			  click : ${this.countState.get}
 		  </button>
     `;
 	}

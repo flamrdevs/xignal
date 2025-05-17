@@ -8,6 +8,6 @@ const doubledValue = useSignalValue(doubled);
 </script>
     
 <div class="counter-container">
-  <div class="counter-count">count { countValue.value }</div>
-  <div class="counter-doubled">doubled { doubledValue.value }</div>
+  <div class="counter-count">count { countValue.get }</div>
+  <div class="counter-doubled">doubled { doubledValue.get }</div>
 </div>

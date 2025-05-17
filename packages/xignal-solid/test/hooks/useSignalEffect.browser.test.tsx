@@ -10,7 +10,7 @@ import { useSignalEffect } from "@xignal/solid";
 
 import { render } from "~/test/utils";
 
-const global = xignal.state(0);
+const count = xignal.state(0);
 
 const fnEffect = vt.vi.fn();
 const fnEffectCleanup = vt.vi.fn();
@@ -19,7 +19,7 @@ const Component = () => {
 	const [local, setLocal] = createSignal(0);
 
 	useSignalEffect(() => {
-		fnEffect(global.get(), local());
+		fnEffect(count.get(), local());
 		return fnEffectCleanup;
 	});
 
@@ -46,7 +46,7 @@ vt.describe("useSignalEffect", () => {
 			vt.expect(fnEffectCleanup).not.toHaveBeenCalled();
 		});
 
-		global.set(1);
+		count.set(1);
 
 		vt.expect(fnEffect).toHaveBeenCalledTimes(2);
 		vt.expect(fnEffectCleanup).toHaveBeenCalledOnce();

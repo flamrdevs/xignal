@@ -1,12 +1,12 @@
 <script lang="ts">
 import { useSignalState } from "@xignal/svelte";
 
-import { global } from "./module";
+import { count } from "./module";
 
-const [globalValue, globalUpdate] = useSignalState(global);
+const [countValue, countUpdate] = useSignalState(count);
 
 const onClick = () => {
-	globalUpdate((n) => n + 1);
+	countUpdate((n) => n + 1);
 };
 </script>
 
@@ -14,5 +14,5 @@ const onClick = () => {
 	type="button"
 	onclick={onClick}
 >
-	click : { globalValue.value }
+	click : { countValue.get }
 </button>

@@ -3,21 +3,21 @@ import { onDestroy } from "svelte";
 import * as xignal from "xignal";
 
 export type ReadValue<T> = Readonly<{
-	value: T;
+	get: T;
 }>;
 
 export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): ReadValue<T> {
-	let value = $state<T>(signal.get());
+	let state = $state<T>(signal.get());
 
 	onDestroy(
 		xignal.effect(() => {
-			value = signal.get();
+			state = signal.get();
 		}),
 	);
 
 	return {
-		get value() {
-			return value;
+		get get() {
+			return state;
 		},
 	};
 }

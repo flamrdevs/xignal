@@ -6,4 +6,4 @@ import { count } from "./counter";
 const state = useSignalValue(count);
 </script>
   
-<div>{state.value}</div>
+<div>{state.get}</div>

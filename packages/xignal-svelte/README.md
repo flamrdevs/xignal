@@ -29,8 +29,8 @@ const doubledValue = useSignalValue(doubled);
 </script>
     
 <div>
-  <div>count { countValue.value }</div>
-  <div>doubled { doubledValue.value }</div>
+  <div>count { countValue.get }</div>
+  <div>doubled { doubledValue.get }</div>
 </div>
 
 ```

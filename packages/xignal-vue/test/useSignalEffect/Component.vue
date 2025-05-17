@@ -3,12 +3,12 @@ import { ref } from "vue";
 
 import { useSignalEffect } from "@xignal/vue";
 
-import { global, fnEffect, fnEffectCleanup } from "./module";
+import { count, fnEffect, fnEffectCleanup } from "./module";
 
 const local = ref(0);
 
 useSignalEffect(() => {
-	fnEffect(global.get(), local.value);
+	fnEffect(count.get(), local.value);
 	return fnEffectCleanup;
 });
 

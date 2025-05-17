@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useSignalState } from "@xignal/vue";
 
-import { global } from "./module";
+import { count } from "./module";
 
-const [globalValue, globalUpdate] = useSignalState(global);
+const [countValue, countUpdate] = useSignalState(count);
 
 const onClick = () => {
-	globalUpdate((n) => n + 1);
+	countUpdate((n) => n + 1);
 };
 </script>
 
@@ -15,6 +15,6 @@ const onClick = () => {
 		type="button"
 		@click="onClick"
 	>
-		click : {{ globalValue }}
+		click : {{ countValue }}
 	</button>
 </template>

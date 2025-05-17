@@ -5,7 +5,7 @@ import "@private/tests/styles";
 
 import { mount } from "~/test/utils";
 
-import { global, fnEffect, fnEffectCleanup } from "./module";
+import { count, fnEffect, fnEffectCleanup } from "./module";
 import Component from "./Component.vue";
 
 vt.describe("useSignalEffect", () => {
@@ -19,7 +19,7 @@ vt.describe("useSignalEffect", () => {
 			vt.expect(fnEffectCleanup).not.toHaveBeenCalled();
 		});
 
-		global.set(1);
+		count.set(1);
 
 		vt.expect(fnEffect).toHaveBeenCalledTimes(2);
 		vt.expect(fnEffectCleanup).toHaveBeenCalledOnce();

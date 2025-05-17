@@ -5,18 +5,18 @@ import "@private/tests/styles";
 
 import { render } from "~/test/utils";
 
-import { global } from "./Component";
+import { count } from "./Component";
 
 vt.describe("useSignalState", () => {
 	vt.it("should work", async () => {
 		render(document.createElement("component-main"));
 
-		const getButton = (global: unknown) =>
-			expectGetElementToBeInTheDocument((page) => page.getByText(`click : ${global}`));
+		const getButton = (count: unknown) =>
+			expectGetElementToBeInTheDocument((page) => page.getByText(`click : ${count}`));
 
 		let button = await getButton("0");
 
-		global.set(1);
+		count.set(1);
 
 		button = await getButton("1");
 
