@@ -5,8 +5,8 @@ import { delay } from "es-toolkit/promise";
 import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import { computed, effect } from "xignal";
-import { type Driver, createMemoryDriver, createStorageDriver, signal } from "xignal/storage";
+import * as xignal from "xignal";
+import * as xignalStorage from "xignal/storage";
 
 import { render } from "~/test/utils";
 
@@ -19,19 +19,19 @@ render.beforeEachCleanup(() => {
 
 vt.describe("CounterStorage", () => {
 	vt.it.for([
-		createStorageDriver(localStorage),
-		createStorageDriver(sessionStorage),
-		createMemoryDriver(),
-	] satisfies Driver[])("should work", async (driver) => {
+		xignalStorage.createStorageDriver(localStorage),
+		xignalStorage.createStorageDriver(sessionStorage),
+		xignalStorage.createMemoryDriver(),
+	] satisfies xignalStorage.Driver[])("should work", async (driver) => {
 		const log = vt.vi.fn();
 
 		const counter = createCounterElement();
 
 		render(counter.root);
 
-		const count = signal("count", 0, driver);
-		const doubled = computed(() => count.get() * 2);
-		const stopEffect = effect(() => {
+		const count = xignalStorage.state("count", 0, driver);
+		const doubled = xignal.computed(() => count.get() * 2);
+		const stopEffect = xignal.effect(() => {
 			const countValue = count.get();
 			const doubledValue = doubled.get();
 			log(countValue, doubledValue);

@@ -20,9 +20,9 @@ signals library
 
 ```ts
 
-import { signal, computed, effect } from "xignal";
+import { state, computed, effect } from "xignal";
 
-const count = signal(1);
+const count = state(1);
 const doubled = computed(() => count.get() * 2);
 
 effect(() => {

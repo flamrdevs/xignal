@@ -1,12 +1,12 @@
 import { createMemo } from "solid-js";
 import type { JSX } from "solid-js";
 
-import type { ReadonlySignal } from "xignal";
+import type * as xignal from "xignal";
 
 import { useSignalValue } from "./hooks";
 
 export function Show(props: {
-	when: ReadonlySignal<unknown>;
+	when: xignal.ReadonlySignal<unknown>;
 	children?: JSX.Element;
 	fallback?: JSX.Element;
 }): JSX.Element {

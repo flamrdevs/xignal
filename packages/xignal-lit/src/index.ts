@@ -1,7 +1,6 @@
 import type { ReactiveController, ReactiveControllerHost } from "lit";
 
-import { effect } from "xignal";
-import type { ReadonlySignal } from "xignal";
+import * as xignal from "xignal";
 
 export class UseSignalValue<T> implements ReactiveController {
 	private _value: T;
@@ -9,14 +8,14 @@ export class UseSignalValue<T> implements ReactiveController {
 
 	constructor(
 		private host: ReactiveControllerHost,
-		private signal: ReadonlySignal<T>,
+		private signal: xignal.ReadonlySignal<T>,
 	) {
 		host.addController(this);
 		this._value = this.signal.get();
 	}
 
 	hostConnected(): void {
-		this.stop = effect(() => {
+		this.stop = xignal.effect(() => {
 			this._value = this.signal.get();
 			this.host.requestUpdate();
 		});

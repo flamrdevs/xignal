@@ -10,9 +10,9 @@
 
 ```ts
 
-import { signal, computed, effect } from "xignal";
+import { state, computed, effect } from "xignal";
 
-const count = signal(1);
+const count = state(1);
 const doubled = computed(() => count.get() * 2);
 
 effect(() => {
@@ -29,13 +29,28 @@ doubled.get(); // 4
 
 ```
 
+#### another way to import
+
+```ts
+
+import * as xignal from "xignal";
+
+const count = xignal.state(1);
+const doubled = xignal.computed(() => count.get() * 2);
+
+xignal.effect(() => {
+	console.log(`doubled ${doubled.get()}`);
+});
+
+```
+
 ### Update
 
 ```ts
 
-import { signal, update } from "xignal";
+import { state, update } from "xignal";
 
-const n = signal(0);
+const n = state(0);
 
 update(n, 1); // n = 1
 update(n, (n) => n + 1); // n = 2
@@ -46,10 +61,10 @@ update(n, (n) => n + 1); // n = 2
 
 ```ts
 
-import { signal, batch } from "xignal";
+import { state, batch } from "xignal";
 
-const n1 = signal(0);
-const n2 = signal(0);
+const n1 = state(0);
+const n2 = state(0);
 
 batch(() => {
 	n1.set(1);
@@ -62,10 +77,10 @@ batch(() => {
 
 ```ts
 
-import { signal, effect, untrack } from "xignal";
+import { state, effect, untrack } from "xignal";
 
-const n1 = signal(0);
-const n2 = signal(0);
+const n1 = state(0);
+const n2 = state(0);
 
 effect(() => {
 	n1.get();
@@ -78,15 +93,15 @@ effect(() => {
 
 ```ts
 
-import { signal, createMemoryDriver, createStorageDriver } from "xignal/storage";
+import { state, createMemoryDriver, createStorageDriver } from "xignal/storage";
 
-const localStorageSignal = signal("localStorage", "value");
+const localStorageSignal = state("localStorage", "value");
 
-const sessionStorageSignal = signal("sessionStorage", "value", createStorageDriver(sessionStorage));
+const sessionStorageSignal = state("sessionStorage", "value", createStorageDriver(sessionStorage));
 
 const memoryStorageDriver = createMemoryDriver({});
-const memoryStorageSignalX = signal("x", 0, memoryStorageDriver);
-const memoryStorageSignalY = signal("y", 0, memoryStorageDriver);
+const memoryStorageSignalX = state("x", 0, memoryStorageDriver);
+const memoryStorageSignalY = state("y", 0, memoryStorageDriver);
 
 ```
 
@@ -94,12 +109,12 @@ const memoryStorageSignalY = signal("y", 0, memoryStorageDriver);
 
 ```ts
 
-import { signal, computed } from "xignal/standard-schema";
-// import { signal } from "xignal/standard-schema/storage";
+import { state, computed } from "xignal/standard-schema";
+// import { state } from "xignal/standard-schema/storage";
 
 import { z } from "zod";
 
-const count = signal(z.number(), 1);
+const count = state(z.number(), 1);
 const doubled = computed(z.number(), () => count.get() * 2);
 
 ```

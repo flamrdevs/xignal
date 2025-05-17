@@ -1,8 +1,8 @@
-import { signal, computed } from "xignal";
+import * as xignal from "xignal";
 import { useSignalValue } from "@xignal/react";
 
-export const count = signal(0);
-export const doubled = computed(() => count.get() * 2);
+export const count = xignal.state(0);
+export const doubled = xignal.computed(() => count.get() * 2);
 
 const Counter = () => {
 	const countValue = useSignalValue(count);

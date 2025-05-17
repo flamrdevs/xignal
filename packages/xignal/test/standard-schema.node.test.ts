@@ -4,12 +4,12 @@ import { type } from "arktype";
 import * as v from "valibot";
 import { z } from "zod";
 
-import { signal, computed } from "xignal/standard-schema";
+import * as xignalStandardSchema from "xignal/standard-schema";
 
 vt.describe("standard-schema", () => {
 	vt.describe("arktype", () => {
 		vt.it("should work", () => {
-			const _signal = signal(
+			const state = xignalStandardSchema.state(
 				type({
 					name: "string",
 				}),
@@ -17,17 +17,17 @@ vt.describe("standard-schema", () => {
 					name: "1",
 				},
 			);
-			const _computed = computed(
+			const computed = xignalStandardSchema.computed(
 				type({
 					length: "number",
 				}),
 				() => ({
-					length: _signal.get().name.length,
+					length: state.get().name.length,
 				}),
 			);
 
 			vt.expect(() => {
-				signal(
+				xignalStandardSchema.state(
 					type({
 						key: "string",
 					}),
@@ -35,23 +35,23 @@ vt.describe("standard-schema", () => {
 				);
 			}).toThrow();
 
-			vt.expect(_signal.get()).toEqual({ name: "1" });
-			vt.expect(_computed.get()).toEqual({ length: 1 });
+			vt.expect(state.get()).toEqual({ name: "1" });
+			vt.expect(computed.get()).toEqual({ length: 1 });
 
-			_signal.set({ name: "12" });
+			state.set({ name: "12" });
 
-			vt.expect(_signal.get()).toEqual({ name: "12" });
-			vt.expect(_computed.get()).toEqual({ length: 2 });
+			vt.expect(state.get()).toEqual({ name: "12" });
+			vt.expect(computed.get()).toEqual({ length: 2 });
 
 			vt.expect(() => {
-				_signal.set([] as any);
+				state.set([] as any);
 			}).toThrow();
 		});
 	});
 
 	vt.describe("valibot", () => {
 		vt.it("should work", () => {
-			const _signal = signal(
+			const state = xignalStandardSchema.state(
 				v.object({
 					name: v.string(),
 				}),
@@ -59,17 +59,17 @@ vt.describe("standard-schema", () => {
 					name: "1",
 				},
 			);
-			const _computed = computed(
+			const computed = xignalStandardSchema.computed(
 				v.object({
 					length: v.number(),
 				}),
 				() => ({
-					length: _signal.get().name.length,
+					length: state.get().name.length,
 				}),
 			);
 
 			vt.expect(() => {
-				signal(
+				xignalStandardSchema.state(
 					v.object({
 						key: v.string(),
 					}),
@@ -77,23 +77,23 @@ vt.describe("standard-schema", () => {
 				);
 			}).toThrow();
 
-			vt.expect(_signal.get()).toEqual({ name: "1" });
-			vt.expect(_computed.get()).toEqual({ length: 1 });
+			vt.expect(state.get()).toEqual({ name: "1" });
+			vt.expect(computed.get()).toEqual({ length: 1 });
 
-			_signal.set({ name: "12" });
+			state.set({ name: "12" });
 
-			vt.expect(_signal.get()).toEqual({ name: "12" });
-			vt.expect(_computed.get()).toEqual({ length: 2 });
+			vt.expect(state.get()).toEqual({ name: "12" });
+			vt.expect(computed.get()).toEqual({ length: 2 });
 
 			vt.expect(() => {
-				_signal.set([] as any);
+				state.set([] as any);
 			}).toThrow();
 		});
 	});
 
 	vt.describe("zod", () => {
 		vt.it("should work", () => {
-			const _signal = signal(
+			const state = xignalStandardSchema.state(
 				z.object({
 					name: z.string(),
 				}),
@@ -101,17 +101,17 @@ vt.describe("standard-schema", () => {
 					name: "1",
 				},
 			);
-			const _computed = computed(
+			const computed = xignalStandardSchema.computed(
 				z.object({
 					length: z.number(),
 				}),
 				() => ({
-					length: _signal.get().name.length,
+					length: state.get().name.length,
 				}),
 			);
 
 			vt.expect(() => {
-				signal(
+				xignalStandardSchema.state(
 					z.object({
 						key: z.string(),
 					}),
@@ -119,16 +119,16 @@ vt.describe("standard-schema", () => {
 				);
 			}).toThrow();
 
-			vt.expect(_signal.get()).toEqual({ name: "1" });
-			vt.expect(_computed.get()).toEqual({ length: 1 });
+			vt.expect(state.get()).toEqual({ name: "1" });
+			vt.expect(computed.get()).toEqual({ length: 1 });
 
-			_signal.set({ name: "12" });
+			state.set({ name: "12" });
 
-			vt.expect(_signal.get()).toEqual({ name: "12" });
-			vt.expect(_computed.get()).toEqual({ length: 2 });
+			vt.expect(state.get()).toEqual({ name: "12" });
+			vt.expect(computed.get()).toEqual({ length: 2 });
 
 			vt.expect(() => {
-				_signal.set([] as any);
+				state.set([] as any);
 			}).toThrow();
 		});
 	});

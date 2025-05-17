@@ -1,15 +1,14 @@
 import { onDestroy } from "svelte";
 
-import { effect } from "xignal";
-import type { ReadonlySignal, EffectFn } from "xignal";
+import * as xignal from "xignal";
 
-export function useSignalValue<T>(signal: ReadonlySignal<T>): Readonly<{
+export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): Readonly<{
 	value: T;
 }> {
 	let value = $state<T>(signal.get());
 
 	onDestroy(
-		effect(() => {
+		xignal.effect(() => {
 			value = signal.get();
 		}),
 	);
@@ -21,6 +20,6 @@ export function useSignalValue<T>(signal: ReadonlySignal<T>): Readonly<{
 	};
 }
 
-export function useSignalEffect(effectFn: EffectFn): void {
-	$effect(() => effect(effectFn));
+export function useSignalEffect(effectFn: xignal.EffectFn): void {
+	$effect(() => xignal.effect(effectFn));
 }

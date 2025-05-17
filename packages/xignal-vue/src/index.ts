@@ -1,14 +1,13 @@
 import { onUnmounted, shallowReadonly, shallowRef, watchEffect } from "vue";
 import type { ShallowRef } from "vue";
 
-import { effect } from "xignal";
-import type { ReadonlySignal, EffectFn } from "xignal";
+import * as xignal from "xignal";
 
-export function useSignalValue<T>(signal: ReadonlySignal<T>): Readonly<ShallowRef<T>> {
+export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): Readonly<ShallowRef<T>> {
 	const value: ShallowRef<T> = shallowRef<T>(signal.get());
 
 	onUnmounted(
-		effect(() => {
+		xignal.effect(() => {
 			value.value = signal.get();
 		}),
 	);
@@ -16,8 +15,8 @@ export function useSignalValue<T>(signal: ReadonlySignal<T>): Readonly<ShallowRe
 	return shallowReadonly(value);
 }
 
-export function useSignalEffect(effectFn: EffectFn): void {
+export function useSignalEffect(effectFn: xignal.EffectFn): void {
 	watchEffect((onCleanup) => {
-		onCleanup(effect(effectFn));
+		onCleanup(xignal.effect(effectFn));
 	});
 }

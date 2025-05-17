@@ -3,20 +3,20 @@ import * as core from "../core";
 import { defaultDriver } from "./driver";
 import type { Driver } from "./driver";
 
-export function signal<T>(key: string): core.Signal<T | undefined>;
-export function signal<T>(key: string, initialValue: T): core.Signal<T>;
-export function signal<T>(key: string, initialValue?: T): core.Signal<T | undefined>;
-export function signal<T>(key: string, initialValue: T, driver: Driver<NoInfer<T>>): core.Signal<T>;
-export function signal<T>(
+export function state<T>(key: string): core.Signal.State<T | undefined>;
+export function state<T>(key: string, initialValue: T): core.Signal.State<T>;
+export function state<T>(key: string, initialValue?: T): core.Signal.State<T | undefined>;
+export function state<T>(key: string, initialValue: T, driver: Driver<NoInfer<T>>): core.Signal.State<T>;
+export function state<T>(
 	key: string,
 	initialValue?: T,
 	driver: Driver<NoInfer<T> | undefined> = defaultDriver,
-): core.Signal<T | undefined> {
-	const _signal = core.signal<T | undefined>(driver.get(key, initialValue));
+): core.Signal.State<T | undefined> {
+	const state = core.state<T | undefined>(driver.get(key, initialValue));
 	return {
-		get: _signal.get,
+		get: state.get,
 		set: (value: T | undefined) => {
-			_signal.set(value);
+			state.set(value);
 			driver.set(key, value);
 		},
 	};

@@ -1,24 +1,24 @@
 import * as vt from "vitest";
 
-import { signal, computed, effect, update, batch, untrack } from "xignal";
+import * as xignal from "xignal";
 
 vt.describe("core", () => {
 	vt.it("should work", () => {
-		const _signal = signal();
+		const state = xignal.state();
 
-		const computedGetter = vt.vi.fn(() => _signal.get());
+		const computedGetter = vt.vi.fn(() => state.get());
 
-		const _computed = computed(computedGetter);
+		const computed = xignal.computed(computedGetter);
 
 		const effectFn = vt.vi.fn(() => {
-			_computed.get();
+			computed.get();
 		});
 
-		const _stopEffect = effect(effectFn);
+		const stopEffect = xignal.effect(effectFn);
 
 		const expectValues = (cb: (assertion: vt.Assertion) => unknown) => {
-			cb(vt.expect(_signal.get()));
-			cb(vt.expect(_computed.get()));
+			cb(vt.expect(state.get()));
+			cb(vt.expect(computed.get()));
 		};
 		const expectCalledTimes = (computedTimes: number, effectTimes: number) => {
 			vt.expect(computedGetter).toHaveBeenCalledTimes(computedTimes);
@@ -28,54 +28,54 @@ vt.describe("core", () => {
 		expectValues((t) => t.toBeUndefined());
 		expectCalledTimes(1, 1);
 
-		_signal.set(0);
+		state.set(0);
 
 		expectValues((t) => t.toBe(0));
 		expectCalledTimes(2, 2);
 
-		_signal.set("1");
+		state.set("1");
 
 		expectValues((t) => t.toBe("1"));
 		expectCalledTimes(3, 3);
 
-		_signal.set(true);
+		state.set(true);
 
 		expectValues((t) => t.toBe(true));
 		expectCalledTimes(4, 4);
 
-		_signal.set({});
+		state.set({});
 
 		expectValues((t) => t.toEqual({}));
 		expectCalledTimes(5, 5);
 
-		_signal.set([]);
+		state.set([]);
 
 		expectValues((t) => t.toEqual([]));
 		expectCalledTimes(6, 6);
 
-		_signal.set(new Error());
+		state.set(new Error());
 
 		expectValues((t) => t.instanceOf(Error));
 		expectCalledTimes(7, 7);
 
-		_signal.set(null);
+		state.set(null);
 
 		expectValues((t) => t.toBe(null));
 		expectCalledTimes(8, 8);
 
-		_signal.set(undefined);
+		state.set(undefined);
 
 		expectValues((t) => t.toBe(undefined));
 		expectCalledTimes(9, 9);
 
-		_stopEffect();
+		stopEffect();
 
-		_signal.set(0);
+		state.set(0);
 
 		expectValues((t) => t.toBe(0));
 		expectCalledTimes(10, 9);
 
-		_signal.set(1);
+		state.set(1);
 
 		expectValues((t) => t.toBe(1));
 		expectCalledTimes(11, 9);
@@ -91,7 +91,7 @@ vt.describe("core", () => {
 		});
 
 		vt.it("should work", () => {
-			const ms = signal(1000);
+			const ms = xignal.state(1000);
 
 			const timeoutFn = vt.vi.fn();
 
@@ -102,7 +102,7 @@ vt.describe("core", () => {
 				};
 			});
 
-			const _stopEffect = effect(effectFn);
+			const stopEffect = xignal.effect(effectFn);
 
 			vt.expect(timeoutFn).not.toHaveBeenCalled();
 			vt.expect(effectFn).toHaveBeenCalledOnce();
@@ -127,7 +127,7 @@ vt.describe("core", () => {
 			vt.expect(timeoutFn).toHaveBeenCalledTimes(2);
 			vt.expect(effectFn).toHaveBeenCalledTimes(3);
 
-			_stopEffect();
+			stopEffect();
 
 			vt.vi.advanceTimersToNextTimer();
 
@@ -138,16 +138,16 @@ vt.describe("core", () => {
 
 	vt.describe("update()", () => {
 		vt.it("should work", () => {
-			const n = signal(0);
+			const n = xignal.state(0);
 
 			vt.expect(n.get()).toBe(0);
 
-			let next = update(n, 1);
+			let next = xignal.update(n, 1);
 
 			vt.expect(n.get()).toBe(1);
 			vt.expect(next).toBe(1);
 
-			next = update(n, (n) => n + 1);
+			next = xignal.update(n, (n) => n + 1);
 
 			vt.expect(n.get()).toBe(2);
 			vt.expect(next).toBe(2);
@@ -156,25 +156,25 @@ vt.describe("core", () => {
 
 	vt.describe("batch()", () => {
 		vt.it("should work", () => {
-			const n1 = signal(0);
-			const n2 = signal(0);
+			const n1 = xignal.state(0);
+			const n2 = xignal.state(0);
 
 			const computedGetter = vt.vi.fn(() => n1.get() + n2.get());
 
-			const c = computed(computedGetter);
+			const c = xignal.computed(computedGetter);
 
 			const effectFn = vt.vi.fn(() => {
 				n1.get();
 				n2.get();
 			});
 
-			effect(effectFn);
+			xignal.effect(effectFn);
 
 			vt.expect(c.get()).toBe(0);
 			vt.expect(computedGetter).toHaveBeenCalledOnce();
 			vt.expect(effectFn).toHaveBeenCalledOnce();
 
-			batch(() => {
+			xignal.batch(() => {
 				n1.set(1);
 				n2.set(-1);
 			});
@@ -183,7 +183,7 @@ vt.describe("core", () => {
 			vt.expect(computedGetter).toHaveBeenCalledTimes(2);
 			vt.expect(effectFn).toHaveBeenCalledTimes(2);
 
-			batch(() => {
+			xignal.batch(() => {
 				n1.set(10);
 				n2.set(10);
 			});
@@ -196,21 +196,21 @@ vt.describe("core", () => {
 
 	vt.describe("untrack()", () => {
 		vt.it("should work", () => {
-			const n1 = signal(0);
-			const n2 = signal(0);
+			const n1 = xignal.state(0);
+			const n2 = xignal.state(0);
 
-			const computedGetter = vt.vi.fn(() => untrack(() => n1.get() + n2.get()));
+			const computedGetter = vt.vi.fn(() => xignal.untrack(() => n1.get() + n2.get()));
 
-			const c = computed(computedGetter);
+			const c = xignal.computed(computedGetter);
 
 			const effectFn = vt.vi.fn(() => {
-				untrack(() => {
+				xignal.untrack(() => {
 					n1.get();
 					n2.get();
 				});
 			});
 
-			effect(effectFn);
+			xignal.effect(effectFn);
 
 			vt.expect(c.get()).toBe(0);
 			vt.expect(computedGetter).toHaveBeenCalledOnce();

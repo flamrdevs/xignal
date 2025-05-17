@@ -6,19 +6,19 @@ import * as storage from "../storage";
 import { createParse } from "./utils";
 import type { Out } from "./utils";
 
-export function signal<S extends StandardSchemaV1>(
+export function state<S extends StandardSchemaV1>(
 	key: string,
 	schema: S,
 	initialValue: Out<NoInfer<S>>,
 	driver: storage.Driver<Out<NoInfer<S>>> = storage.defaultDriver,
-): core.Signal<Out<S>> {
+): core.Signal.State<Out<S>> {
 	const parse = createParse<S>(schema);
-	const _signal = core.signal<Out<S>>(parse(driver.get(key, initialValue)));
+	const state = core.state<Out<S>>(parse(driver.get(key, initialValue)));
 	return {
-		get: _signal.get,
+		get: state.get,
 		set: (value: Out<S>) => {
 			const parsed = parse(value);
-			_signal.set(parsed);
+			state.set(parsed);
 			driver.set(key, parsed);
 		},
 	};

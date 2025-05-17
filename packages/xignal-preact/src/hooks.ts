@@ -1,15 +1,14 @@
 import { useEffect, useState } from "preact/hooks";
 import type { Inputs } from "preact/hooks";
 
-import { effect } from "xignal";
-import type { ReadonlySignal, EffectFn } from "xignal";
+import * as xignal from "xignal";
 
-export function useSignalValue<T>(signal: ReadonlySignal<T>): T {
+export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): T {
 	const [value, setValue] = useState<T>(() => signal.get());
 
 	useEffect(
 		() =>
-			effect(() => {
+			xignal.effect(() => {
 				setValue(signal.get());
 			}),
 		[signal],
@@ -18,7 +17,7 @@ export function useSignalValue<T>(signal: ReadonlySignal<T>): T {
 	return value;
 }
 
-export function useSignalEffect(effectFn: EffectFn, inputs: Inputs | null = null): void {
+export function useSignalEffect(effectFn: xignal.EffectFn, inputs: Inputs | null = null): void {
 	// biome-ignore lint/correctness/useExhaustiveDependencies: arg inputs
-	useEffect(() => effect(effectFn), inputs === null ? [] : inputs);
+	useEffect(() => xignal.effect(effectFn), inputs === null ? [] : inputs);
 }

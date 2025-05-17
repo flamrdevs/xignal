@@ -5,13 +5,13 @@ import { count } from "./counter";
 <div id="counter-vanilla">{count.get()}</div>
 
 <script>
-  import { effect } from "xignal"
+  import * as xignal from "xignal"
 
   import { count } from "./counter"
 
   const el = document.getElementById("counter-vanilla")!
 
-  effect(() => {
+  xignal.effect(() => {
     el.innerText = `${count.get()}`
   })
 </script>

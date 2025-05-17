@@ -1,9 +1,9 @@
-import { signal, effect, update } from "xignal";
+import * as xignal from "xignal";
 
-export const count = signal<number>(0);
-export const dir = signal<"up" | "down">("up");
+export const count = xignal.state<number>(0);
+export const dir = xignal.state<"up" | "down">("up");
 
-effect(() => {
+xignal.effect(() => {
 	const countValue = count.get();
 	const dirValue = dir.get();
 	if (dirValue === "up" && countValue >= 9) dir.set("down");
@@ -11,7 +11,7 @@ effect(() => {
 });
 
 export const handleUpdate = () => {
-	update(count, (count) => {
+	xignal.update(count, (count) => {
 		const dirValue = dir.get();
 
 		if (dirValue === "up") return count + 1;

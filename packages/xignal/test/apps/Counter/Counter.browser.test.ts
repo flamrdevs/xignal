@@ -5,7 +5,7 @@ import { delay } from "es-toolkit/promise";
 import { expectGetElementsToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import { signal, computed, effect } from "xignal";
+import * as xignal from "xignal";
 
 import { render } from "~/test/utils";
 
@@ -19,9 +19,9 @@ vt.describe("Counter", () => {
 
 		render(counter.root);
 
-		const count = signal(0);
-		const doubled = computed(() => count.get() * 2);
-		const stopEffect = effect(() => {
+		const count = xignal.state(0);
+		const doubled = xignal.computed(() => count.get() * 2);
+		const stopEffect = xignal.effect(() => {
 			const countValue = count.get();
 			const doubledValue = doubled.get();
 			log(countValue, doubledValue);

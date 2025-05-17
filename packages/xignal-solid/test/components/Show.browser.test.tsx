@@ -4,12 +4,12 @@ import { delay } from "es-toolkit/promise";
 
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 
-import { signal } from "xignal";
+import * as xignal from "xignal";
 import { Show } from "@xignal/solid";
 
 import { render } from "~/test/utils";
 
-const when = signal<unknown>();
+const when = xignal.state<unknown>();
 
 const Component = () => {
 	return (

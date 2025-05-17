@@ -1,33 +1,35 @@
 import * as alien from "alien-signals";
 
-export type SignalGet<T> = {
+type SignalGet<T> = {
 	readonly get: () => T;
 };
-export type SignalSet<T> = {
+type SignalSet<T> = {
 	readonly set: (value: T) => void;
 };
 
+export type WritableSignal<T> = SignalGet<T> & SignalSet<T>;
 export type ReadonlySignal<T> = SignalGet<T>;
 
-export type Signal<T = any> = SignalGet<T> & SignalSet<T>;
-
-export type Computed<T = any> = ReadonlySignal<T>;
-
-export type StopEffect = () => void;
-
-export function signal<T>(): Signal<T | undefined>;
-export function signal<T>(initialValue: T): Signal<T>;
-export function signal<T>(initialValue?: T): Signal<T | undefined> {
-	const _signal = alien.signal<T | undefined>(initialValue);
-	return { get: _signal, set: _signal };
+export namespace Signal {
+	export type State<T = any> = WritableSignal<T>;
+	export type Computed<T = any> = ReadonlySignal<T>;
 }
 
-export function computed<T>(getter: (previousValue?: T | undefined) => T): Computed<T> {
-	const _computed = alien.computed(getter);
-	return { get: _computed };
+export function state<T>(): Signal.State<T | undefined>;
+export function state<T>(initialValue: T): Signal.State<T>;
+export function state<T>(initialValue?: T): Signal.State<T | undefined> {
+	const signal = alien.signal<T | undefined>(initialValue);
+	return { get: signal, set: signal };
+}
+
+export function computed<T>(getter: (previousValue?: T | undefined) => T): Signal.Computed<T> {
+	const computed = alien.computed(getter);
+	return { get: computed };
 }
 
 export type EffectFn = () => void | (() => void);
+
+export type StopEffect = () => void;
 
 export function effect(fn: EffectFn): StopEffect {
 	let cleanup: void | (() => void);
@@ -51,9 +53,9 @@ export function effect(fn: EffectFn): StopEffect {
 export type UpdateActionFn<T> = (previousValue: T) => T;
 export type UpdateAction<T> = T | UpdateActionFn<T>;
 
-export function update<T>(signal: Signal<T>, action: UpdateAction<T>): T {
-	const nextValue = typeof action === "function" ? (action as UpdateActionFn<T>)(signal.get()) : action;
-	signal.set(nextValue);
+export function update<T>(state: WritableSignal<T>, action: UpdateAction<T>): T {
+	const nextValue = typeof action === "function" ? (action as UpdateActionFn<T>)(state.get()) : action;
+	state.set(nextValue);
 	return nextValue;
 }
 

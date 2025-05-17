@@ -5,12 +5,12 @@ import { act, useState } from "react";
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import { signal } from "xignal";
+import * as xignal from "xignal";
 import { useSignalEffect } from "@xignal/react";
 
 import { render } from "~/test/utils";
 
-const global = signal(0);
+const global = xignal.state(0);
 
 const fnEffect = vt.vi.fn();
 const fnEffectCleanup = vt.vi.fn();
