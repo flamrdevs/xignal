@@ -7,11 +7,11 @@ import "@private/tests/styles";
 
 import { render } from "~/test/utils";
 
-import { count } from "./Counter";
+import { count, tagName } from "./Counter";
 
 vt.describe("Counter", () => {
 	vt.it("should work", async () => {
-		render(document.createElement("component-counter"));
+		render(tagName);
 
 		await expectGetElementsToBeInTheDocument((page) => [page.getByText("count 0"), page.getByText("doubled 0")]);
 

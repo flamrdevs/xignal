@@ -6,7 +6,9 @@ import { UseSignalState } from "@xignal/lit";
 
 export const count = xignal.state(0);
 
-@customElement("component-main")
+export const tagName = "component-use-signal-state";
+
+@customElement(tagName)
 class Component extends LitElement {
 	private countState = new UseSignalState(this, count);
 

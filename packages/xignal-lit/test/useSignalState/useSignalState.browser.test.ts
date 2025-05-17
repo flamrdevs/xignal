@@ -5,11 +5,11 @@ import "@private/tests/styles";
 
 import { render } from "~/test/utils";
 
-import { count } from "./Component";
+import { count, tagName } from "./Component";
 
-vt.describe("useSignalState", () => {
+vt.describe("UseSignalState", () => {
 	vt.it("should work", async () => {
-		render(document.createElement("component-main"));
+		render(tagName);
 
 		const getButton = (count: unknown) =>
 			expectGetElementToBeInTheDocument((page) => page.getByText(`click : ${count}`));

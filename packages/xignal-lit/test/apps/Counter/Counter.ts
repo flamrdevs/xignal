@@ -7,7 +7,9 @@ import { UseSignalValue } from "@xignal/lit";
 export const count = xignal.state(0);
 export const doubled = xignal.computed(() => count.get() * 2);
 
-@customElement("component-counter")
+export const tagName = "component-counter";
+
+@customElement(tagName)
 class Counter extends LitElement {
 	private countValue = new UseSignalValue(this, count);
 	private doubledValue = new UseSignalValue(this, doubled);

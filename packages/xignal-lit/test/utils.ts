@@ -4,7 +4,10 @@ import { cleanupable } from "@private/tests/utils";
 
 const cleanup = cleanupable();
 
-export const render = (element: HTMLElement) => {
+export const render = (elementOrTagName: HTMLElement | string) => {
+	const element: HTMLElement =
+		typeof elementOrTagName === "string" ? document.createElement(elementOrTagName) : elementOrTagName;
+
 	document.body.appendChild(element);
 
 	let removed = false;
