@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/@xignal/vue)](https://www.npmjs.com/package/@xignal/vue)
 
+Vue x xignal
+
 ## Install
 
 `npm i xignal @xignal/vue`

@@ -1,11 +1,8 @@
 {
 	"name": "@xignal/vue",
 	"version": "0.0.19",
-	"description": "signal",
-	"keywords": [
-		"signal",
-		"vue"
-	],
+	"description": "Vue x xignal",
+	"keywords": ["xignal", "signal", "vue"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -19,9 +16,7 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",

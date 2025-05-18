@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/xignal)](https://www.npmjs.com/package/xignal)
 
+signals library
+
 ## Install
 
 `npm i xignal`

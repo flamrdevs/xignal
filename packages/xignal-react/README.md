@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/@xignal/react)](https://www.npmjs.com/package/@xignal/react)
 
+React x xignal
+
 ## Install
 
 `npm i xignal @xignal/react`

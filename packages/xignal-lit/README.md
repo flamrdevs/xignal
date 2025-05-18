@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/@xignal/lit)](https://www.npmjs.com/package/@xignal/lit)
 
+Lit x xignal
+
 ## Install
 
 `npm i xignal @xignal/lit`

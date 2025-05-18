@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/@xignal/solid)](https://www.npmjs.com/package/@xignal/solid)
 
+Solid x xignal
+
 ## Install
 
 `npm i xignal @xignal/solid`

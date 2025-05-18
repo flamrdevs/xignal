@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/@xignal/preact)](https://www.npmjs.com/package/@xignal/preact)
 
+Preact x xignal
+
 ## Install
 
 `npm i xignal @xignal/preact`

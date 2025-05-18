@@ -1,5 +1,7 @@
 [![version](https://badgen.net/npm/v/@xignal/svelte)](https://www.npmjs.com/package/@xignal/svelte)
 
+Svelte x xignal
+
 ## Install
 
 `npm i xignal @xignal/svelte`

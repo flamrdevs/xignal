@@ -1,11 +1,8 @@
 {
 	"name": "@xignal/react",
 	"version": "0.0.19",
-	"description": "signal",
-	"keywords": [
-		"signal",
-		"react"
-	],
+	"description": "React x xignal",
+	"keywords": ["xignal", "signal", "react"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -19,9 +16,7 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",

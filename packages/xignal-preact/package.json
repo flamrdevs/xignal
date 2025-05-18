@@ -1,11 +1,8 @@
 {
 	"name": "@xignal/preact",
 	"version": "0.0.19",
-	"description": "signal",
-	"keywords": [
-		"signal",
-		"preact"
-	],
+	"description": "Preact x xignal",
+	"keywords": ["xignal", "signal", "preact"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -19,9 +16,7 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",
