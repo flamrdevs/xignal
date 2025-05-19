@@ -12,7 +12,7 @@ import { render } from "~/test/utils";
 
 import { createCounterElement } from "./elements";
 
-render.beforeEachCleanup(() => {
+vt.beforeEach(() => {
 	localStorage.clear();
 	sessionStorage.clear();
 });

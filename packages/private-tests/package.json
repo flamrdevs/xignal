@@ -5,9 +5,11 @@
 	"exports": {
 		".": "./index.ts",
 		"./browser": "./browser/index.ts",
+		"./dom": "./dom/index.ts",
 		"./styles": "./styles/index.ts",
 		"./utils": "./utils/index.ts",
 		"./types": "./types.d.ts",
+		"./globals": "./globals/index.ts",
 		"./config": "./config.ts"
 	}
 }

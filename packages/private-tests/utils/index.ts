@@ -1,9 +1,11 @@
+type CleanupFn = () => void;
+
 export const cleanupable = () => {
-	type Fn = () => void;
+	const sets = new Set<CleanupFn>();
 
-	const sets = new Set<Fn>();
-
-	return (fn?: Fn) => {
+	function cleanup(): void;
+	function cleanup(fn: CleanupFn): CleanupFn;
+	function cleanup(fn?: CleanupFn): void | CleanupFn {
 		if (typeof fn === "undefined") {
 			for (const set of sets) {
 				set();
@@ -11,6 +13,9 @@ export const cleanupable = () => {
 			}
 		} else {
 			sets.add(fn);
+			return fn;
 		}
-	};
+	}
+
+	return cleanup;
 };

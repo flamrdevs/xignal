@@ -1,36 +1,17 @@
-import * as vt from "vitest";
-
 import { createApp } from "vue";
-import type { Component } from "vue";
 
-import { cleanupable } from "@private/tests/utils";
+import { createRemovableContainer } from "@private/tests/dom";
+import { cleanup } from "@private/tests/globals";
 
-const cleanup = cleanupable();
-
-export const mount = (component: Component) => {
-	const container = document.createElement("div");
-	document.body.appendChild(container);
+export const mount = (component: any) => {
+	const container = createRemovableContainer();
 
 	const app = createApp(component);
-	app.mount(container);
+	app.mount(container.element);
 
-	let removed = false;
-	const clean = () => {
-		if (!removed) {
-			removed = true;
+	return cleanup(() => {
+		container.remove(() => {
 			app.unmount();
-			document.body.removeChild(container);
-		}
-	};
-	cleanup(clean);
-	return clean;
-};
-
-mount.beforeEachCleanup = (fn?: () => void) => {
-	vt.beforeEach(() => {
-		cleanup();
-		fn?.();
+		});
 	});
 };
-
-mount.addCleanup = (fn: () => void) => cleanup(fn);

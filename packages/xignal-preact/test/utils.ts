@@ -1,35 +1,17 @@
-import * as vt from "vitest";
-
 import { render as _render } from "preact";
 import type { ComponentChild } from "preact";
 
-import { cleanupable } from "@private/tests/utils";
-
-const cleanup = cleanupable();
+import { createRemovableContainer } from "@private/tests/dom";
+import { cleanup } from "@private/tests/globals";
 
 export const render = (vnode: ComponentChild) => {
-	const container = document.createElement("div");
-	document.body.appendChild(container);
+	const container = createRemovableContainer();
 
-	_render(vnode, container);
+	_render(vnode, container.element);
 
-	let removed = false;
-	const clean = () => {
-		if (!removed) {
-			removed = true;
-			_render(null, container);
-			document.body.removeChild(container);
-		}
-	};
-	cleanup(clean);
-	return clean;
-};
-
-render.beforeEachCleanup = (fn?: () => void) => {
-	vt.beforeEach(() => {
-		cleanup();
-		fn?.();
+	return cleanup(() => {
+		container.remove(() => {
+			_render(null, container.element);
+		});
 	});
 };
-
-render.addCleanup = (fn: () => void) => cleanup(fn);

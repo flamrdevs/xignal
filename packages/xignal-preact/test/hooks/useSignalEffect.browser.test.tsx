@@ -48,8 +48,10 @@ vt.describe("useSignalEffect", () => {
 
 		count.set(1);
 
-		vt.expect(fnEffect).toHaveBeenCalledTimes(2);
-		vt.expect(fnEffectCleanup).toHaveBeenCalledOnce();
+		await vt.vi.waitFor(() => {
+			vt.expect(fnEffect).toHaveBeenCalledTimes(2);
+			vt.expect(fnEffectCleanup).toHaveBeenCalledOnce();
+		});
 
 		(button.element() as HTMLButtonElement).click();
 
