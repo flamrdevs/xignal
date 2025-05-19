@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.20
+
+### Patch Changes
+
+- 0148828: refactor test
+- 4740644: update description
+
 ## 0.0.19
 
 ### Patch Changes

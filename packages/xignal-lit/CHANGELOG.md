@@ -1,5 +1,15 @@
 # @xignal/lit
 
+## 0.0.20
+
+### Patch Changes
+
+- 0148828: refactor test
+- 4740644: update description
+- Updated dependencies [0148828]
+- Updated dependencies [4740644]
+  - xignal@0.0.20
+
 ## 0.0.19
 
 ### Patch Changes
