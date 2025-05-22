@@ -1,5 +1,13 @@
 # @xignal/lit
 
+## 0.0.21
+
+### Patch Changes
+
+- 1a1d548: preserveModules
+- Updated dependencies [1a1d548]
+  - xignal@0.0.21
+
 ## 0.0.20
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.21
+
+### Patch Changes
+
+- 1a1d548: preserveModules
+
 ## 0.0.20
 
 ### Patch Changes

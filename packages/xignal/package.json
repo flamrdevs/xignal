@@ -1,8 +1,11 @@
 {
 	"name": "xignal",
-	"version": "0.0.20",
+	"version": "0.0.21",
 	"description": "signals library",
-	"keywords": ["xignal", "signal"],
+	"keywords": [
+		"xignal",
+		"signal"
+	],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -28,7 +31,9 @@
 			"default": "./dist/standard-schema/storage.js"
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",
