@@ -2,27 +2,21 @@
 	"name": "@xignal/svelte",
 	"version": "0.0.20",
 	"description": "Svelte x xignal",
-	"keywords": [
-		"xignal",
-		"signal",
-		"svelte"
-	],
+	"keywords": ["xignal", "signal", "svelte"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
 	},
 	"type": "module",
-	"main": "./dist/index.svelte.js",
-	"types": "./dist/index.svelte.d.ts",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.svelte.d.ts",
-			"default": "./dist/index.svelte.js"
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",

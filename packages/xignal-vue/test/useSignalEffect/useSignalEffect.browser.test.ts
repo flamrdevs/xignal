@@ -5,8 +5,8 @@ import "@private/tests/styles";
 
 import { mount } from "~/test/utils";
 
-import { count, fnEffect, fnEffectCleanup } from "./module";
 import Component from "./Component.vue";
+import { count, fnEffect, fnEffectCleanup } from "./module";
 
 vt.describe("useSignalEffect", () => {
 	vt.it("should work", async () => {

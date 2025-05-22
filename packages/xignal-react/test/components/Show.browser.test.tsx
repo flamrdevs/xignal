@@ -6,8 +6,8 @@ import { delay } from "es-toolkit/promise";
 
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 
-import * as xignal from "xignal";
 import { Show } from "@xignal/react";
+import * as xignal from "xignal";
 
 import { render } from "~/test/utils";
 

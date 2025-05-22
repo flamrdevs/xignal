@@ -1,8 +1,8 @@
 import { LitElement, html } from "lit";
 import { customElement } from "lit/decorators.js";
 
-import * as xignal from "xignal";
 import { UseSignalValue } from "@xignal/lit";
+import * as xignal from "xignal";
 
 export const count = xignal.state(0);
 export const doubled = xignal.computed(() => count.get() * 2);

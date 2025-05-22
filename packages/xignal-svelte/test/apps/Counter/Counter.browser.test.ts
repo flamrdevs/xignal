@@ -7,8 +7,8 @@ import "@private/tests/styles";
 
 import { mount } from "~/test/utils";
 
-import { count } from "./module";
 import Counter from "./Counter.svelte";
+import { count } from "./module";
 
 vt.describe("Counter", () => {
 	vt.it("should work", async () => {

@@ -1,5 +1,5 @@
-import { render as _render } from "solid-js/web";
 import type { JSX } from "solid-js";
+import { render as _render } from "solid-js/web";
 
 import { createRemovableContainer } from "@private/tests/dom";
 import { cleanup } from "@private/tests/globals";

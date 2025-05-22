@@ -2,11 +2,7 @@
 	"name": "@xignal/solid",
 	"version": "0.0.20",
 	"description": "Solid x xignal",
-	"keywords": [
-		"xignal",
-		"signal",
-		"solid"
-	],
+	"keywords": ["xignal", "signal", "solid"],
 	"license": "MIT",
 	"author": {
 		"name": "flamrdevs"
@@ -20,9 +16,7 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/flamrdevs/xignal.git",

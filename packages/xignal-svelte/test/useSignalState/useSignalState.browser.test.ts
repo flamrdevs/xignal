@@ -5,8 +5,8 @@ import "@private/tests/styles";
 
 import { mount } from "~/test/utils";
 
-import { count } from "./module";
 import Component from "./Component.svelte";
+import { count } from "./module";
 
 vt.describe("useSignalState", () => {
 	vt.it("should work", async () => {

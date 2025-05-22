@@ -12,5 +12,9 @@ export const define = (entry: string[]) => {
 		},
 		clean: true,
 		publint: true,
+		outputOptions: {
+			preserveModules: true,
+			preserveModulesRoot: "src",
+		},
 	});
 };

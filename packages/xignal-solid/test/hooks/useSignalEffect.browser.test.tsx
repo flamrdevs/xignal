@@ -5,8 +5,8 @@ import { createSignal } from "solid-js";
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import * as xignal from "xignal";
 import { useSignalEffect } from "@xignal/solid";
+import * as xignal from "xignal";
 
 import { render } from "~/test/utils";
 

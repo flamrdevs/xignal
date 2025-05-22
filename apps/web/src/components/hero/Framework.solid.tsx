@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onCleanup, type ParentProps } from "solid-js";
+import { type ParentProps, createEffect, createSignal, onCleanup } from "solid-js";
 import { createDynamic } from "solid-js/web";
 
 import clsx from "clsx";

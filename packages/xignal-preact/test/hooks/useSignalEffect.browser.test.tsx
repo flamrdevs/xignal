@@ -5,8 +5,8 @@ import { useState } from "preact/hooks";
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import * as xignal from "xignal";
 import { useSignalEffect } from "@xignal/preact";
+import * as xignal from "xignal";
 
 import { render } from "~/test/utils";
 

@@ -1,7 +1,7 @@
-import { expect } from "vitest";
-import type { ExpectPollOptions } from "vitest";
 import { page } from "@vitest/browser/context";
 import type { BrowserPage, Locator } from "@vitest/browser/context";
+import { expect } from "vitest";
+import type { ExpectPollOptions } from "vitest";
 
 export const expectElementToBeInTheDocument = async (locator: Locator, options?: ExpectPollOptions) => {
 	await expect.element(locator, options).toBeInTheDocument();
