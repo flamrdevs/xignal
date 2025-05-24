@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.22
+
+### Patch Changes
+
+- efe9756: unbundle
+
 ## 0.0.21
 
 ### Patch Changes
