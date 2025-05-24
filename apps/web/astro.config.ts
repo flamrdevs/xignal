@@ -1,3 +1,5 @@
+import path from "node:path";
+
 import { defineConfig, passthroughImageService } from "astro/config";
 
 import preact from "@astrojs/preact";
@@ -7,6 +9,10 @@ import svelte, { vitePreprocess } from "@astrojs/svelte";
 import vue from "@astrojs/vue";
 
 import tailwindcss from "@tailwindcss/vite";
+
+import { build } from "tsdown";
+
+await build({ config: false, cwd: path.resolve(process.cwd(), "src/theme/sync"), entry: "src/index.ts" });
 
 export default defineConfig({
 	integrations: [
