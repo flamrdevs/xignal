@@ -4,7 +4,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"target": "ESNext",
 		"module": "ESNext",
-		"lib": ["ESNext"],
+		"lib": [
+			"ESNext"
+		],
 		"moduleResolution": "bundler",
 		"esModuleInterop": true,
 		"allowImportingTsExtensions": true,

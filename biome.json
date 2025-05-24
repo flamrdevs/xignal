@@ -10,6 +10,11 @@
 		"indentStyle": "tab",
 		"lineWidth": 120
 	},
+	"json": {
+		"formatter": {
+			"lineWidth": 1
+		}
+	},
 	"organizeImports": {
 		"enabled": true
 	},
