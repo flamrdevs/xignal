@@ -23,8 +23,8 @@
 		"clsx": "^2.1.1",
 		"lit": "^3",
 		"preact": "^10",
-		"react": "^18",
-		"react-dom": "^18",
+		"react": "^19",
+		"react-dom": "^19",
 		"solid-js": "^1",
 		"svelte": "^5.33.1",
 		"vue": "^3",
@@ -32,8 +32,8 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/vite": "^4.1.7",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
 		"tailwindcss": "^4.1.7"
 	}
 }

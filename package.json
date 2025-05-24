@@ -22,7 +22,7 @@
 		"@private/tests": "workspace:*",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@types/node": "^22.15.21",
-		"@vitejs/plugin-react": "^4.4.1",
+		"@vitejs/plugin-react": "^4.5.0",
 		"@vitejs/plugin-vue": "5.2.4",
 		"@vitest/browser": "^3.1.4",
 		"@vitest/ui": "^3.1.4",
@@ -31,13 +31,13 @@
 		"husky": "^9.1.7",
 		"playwright": "^1.52.0",
 		"publint": "^0.3.12",
-		"tsdown": "0.12.2",
+		"tsdown": "0.12.3",
 		"turbo": "^2.5.3",
 		"valibot": "^1.1.0",
 		"vite-plugin-solid": "^2.11.6",
 		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^3.1.4",
-		"zod": "3.25.22"
+		"zod": "3.25.28"
 	},
 	"packageManager": "pnpm@10.10.0",
 	"engines": {
