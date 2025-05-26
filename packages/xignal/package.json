@@ -22,6 +22,10 @@
 			"types": "./dist/storage/index.d.ts",
 			"default": "./dist/storage/index.js"
 		},
+		"./storage/driver": {
+			"types": "./dist/storage/driver.d.ts",
+			"default": "./dist/storage/driver.js"
+		},
 		"./standard-schema": {
 			"types": "./dist/standard-schema/index.d.ts",
 			"default": "./dist/standard-schema/index.js"
