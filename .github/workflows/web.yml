@@ -1,5 +1,7 @@
 name: Web
 
+on: workflow_dispatch
+
 env:
   CI: true
 
