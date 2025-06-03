@@ -23,6 +23,7 @@
 		"rules": {
 			"recommended": true,
 			"style": {
+				"useNodejsImportProtocol": "error",
 				"noNonNullAssertion": "info"
 			},
 			"suspicious": {
