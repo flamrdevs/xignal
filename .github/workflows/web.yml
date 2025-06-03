@@ -24,7 +24,7 @@ jobs:
           cache: 'pnpm'
       
       - name: Install
-        run: pnpm install
+        run: pnpm install && pnpm add -Dw wrangler
       
       - name: Build
         run: pnpm exec turbo build --filter=web
