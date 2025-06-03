@@ -1,5 +1,14 @@
 # @xignal/react
 
+## 0.0.22
+
+### Patch Changes
+
+- efe9756: unbundle
+- Updated dependencies [efe9756]
+- Updated dependencies [460b60a]
+  - xignal@0.0.22
+
 ## 0.0.21
 
 ### Patch Changes

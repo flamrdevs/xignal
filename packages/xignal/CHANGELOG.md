@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.22
+
+### Patch Changes
+
+- efe9756: unbundle
+- 460b60a: add storage driver entrypoint
+
 ## 0.0.21
 
 ### Patch Changes
