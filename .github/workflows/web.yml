@@ -6,8 +6,8 @@ env:
   CI: true
 
 jobs:
-  release:
-    name: Release
+  deploy:
+    name: Deploy
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
