@@ -9,7 +9,6 @@ onlyBuiltDependencies:
 
 overrides:
   "@babel/helper-module-imports": "7.27.1"
-  "@babel/parser": "7.27.2"
   "@rolldown/pluginutils": "nightly"
   "@vitejs/plugin-react": "$@vitejs/plugin-react"
   "@vitejs/plugin-vue": "$@vitejs/plugin-vue"
