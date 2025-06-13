@@ -51,10 +51,10 @@ export function effect(fn: EffectFn): StopEffect {
 }
 
 export type UpdateActionFn<T> = (previousValue: T) => T;
-export type UpdateAction<T> = T | UpdateActionFn<T>;
+export type UpdateAction<T> = T extends (...args: any[]) => any ? UpdateActionFn<T> : T | UpdateActionFn<T>;
 
 export function update<T>(state: WritableSignal<T>, action: UpdateAction<T>): T {
-	const nextValue = typeof action === "function" ? (action as UpdateActionFn<T>)(state.get()) : action;
+	const nextValue = typeof action === "function" ? (action as UpdateActionFn<T>)(state.get()) : (action as T);
 	state.set(nextValue);
 	return nextValue;
 }

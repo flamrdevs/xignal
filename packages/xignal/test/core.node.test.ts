@@ -139,18 +139,31 @@ vt.describe("core", () => {
 	vt.describe("update()", () => {
 		vt.it("should work", () => {
 			const n = xignal.state(0);
+			const fn = xignal.state((a: number, b: number) => a + b);
+			let fnGet: ReturnType<typeof fn.get>;
 
 			vt.expect(n.get()).toBe(0);
+			fnGet = fn.get();
+			vt.expect(fnGet).toBeTypeOf("function");
+			vt.expect(fnGet(2, 1)).toBe(3);
 
 			let next = xignal.update(n, 1);
+			xignal.update(fn, () => (a, b) => a - b);
 
 			vt.expect(n.get()).toBe(1);
 			vt.expect(next).toBe(1);
+			fnGet = fn.get();
+			vt.expect(fnGet).toBeTypeOf("function");
+			vt.expect(fnGet(2, 1)).toBe(1);
 
 			next = xignal.update(n, (n) => n + 1);
+			xignal.update(fn, (fn) => (a, b) => fn(a, b) + fn(a, b));
 
 			vt.expect(n.get()).toBe(2);
 			vt.expect(next).toBe(2);
+			fnGet = fn.get();
+			vt.expect(fnGet).toBeTypeOf("function");
+			vt.expect(fnGet(2, 1)).toBe(2);
 		});
 	});
 
