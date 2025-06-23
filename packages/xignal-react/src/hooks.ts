@@ -28,3 +28,19 @@ export function useSignalEffect(effectFn: xignal.EffectFn, deps: DependencyList 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: arg deps
 	useEffect(() => xignal.effect(effectFn), deps === null ? [] : deps);
 }
+
+export function createStateWithUseSignalValue<T>(): [xignal.Signal.State<T | undefined>, () => T | undefined];
+export function createStateWithUseSignalValue<T>(initialValue: T): [xignal.Signal.State<T>, () => T];
+export function createStateWithUseSignalValue<T>(
+	initialValue?: T,
+): [xignal.Signal.State<T | undefined>, () => T | undefined] {
+	const state = xignal.state<T | undefined>(initialValue);
+	return [state, () => useSignalValue(state)];
+}
+
+export function createComputedWithUseSignalValue<T>(
+	getter: (previousValue?: T | undefined) => T,
+): [xignal.Signal.Computed<T>, () => T] {
+	const computed = xignal.computed<T>(getter);
+	return [computed, () => useSignalValue(computed)];
+}

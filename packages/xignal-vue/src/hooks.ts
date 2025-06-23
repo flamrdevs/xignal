@@ -28,3 +28,22 @@ export function useSignalEffect(effectFn: xignal.EffectFn): void {
 		onCleanup(xignal.effect(effectFn));
 	});
 }
+
+export function createStateWithUseSignalValue<T>(): [
+	xignal.Signal.State<T | undefined>,
+	() => ReadValue<T | undefined>,
+];
+export function createStateWithUseSignalValue<T>(initialValue: T): [xignal.Signal.State<T>, () => ReadValue<T>];
+export function createStateWithUseSignalValue<T>(
+	initialValue?: T,
+): [xignal.Signal.State<T | undefined>, () => ReadValue<T | undefined>] {
+	const state = xignal.state<T | undefined>(initialValue);
+	return [state, () => useSignalValue(state)];
+}
+
+export function createComputedWithUseSignalValue<T>(
+	getter: (previousValue?: T | undefined) => T,
+): [xignal.Signal.Computed<T>, () => ReadValue<T>] {
+	const computed = xignal.computed<T>(getter);
+	return [computed, () => useSignalValue(computed)];
+}

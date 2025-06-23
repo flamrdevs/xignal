@@ -42,3 +42,24 @@ export class UseSignalState<T> extends UseSignalValue<T> {
 		return xignal.update(this.signal, action);
 	}
 }
+
+export function createStateWithUseSignalValue<T>(): [
+	xignal.Signal.State<T | undefined>,
+	(host: ReactiveControllerHost) => UseSignalValue<T | undefined>,
+];
+export function createStateWithUseSignalValue<T>(
+	initialValue: T,
+): [xignal.Signal.State<T>, (host: ReactiveControllerHost) => UseSignalValue<T>];
+export function createStateWithUseSignalValue<T>(
+	initialValue?: T,
+): [xignal.Signal.State<T | undefined>, (host: ReactiveControllerHost) => UseSignalValue<T | undefined>] {
+	const state = xignal.state<T | undefined>(initialValue);
+	return [state, (host) => new UseSignalValue(host, state)];
+}
+
+export function createComputedWithUseSignalValue<T>(
+	getter: (previousValue?: T | undefined) => T,
+): [xignal.Signal.Computed<T>, (host: ReactiveControllerHost) => UseSignalValue<T>] {
+	const computed = xignal.computed<T>(getter);
+	return [computed, (host) => new UseSignalValue(host, computed)];
+}
