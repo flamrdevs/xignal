@@ -1,5 +1,13 @@
 # @xignal/react
 
+## 0.0.23
+
+### Patch Changes
+
+- 5ad30fd: memoized useSyncExternalStore subscriber
+- 0ed67be: new create signal with hook utility
+  - xignal@0.0.23
+
 ## 0.0.22
 
 ### Patch Changes
