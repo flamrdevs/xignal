@@ -5,11 +5,14 @@ import * as xignal from "xignal";
 
 export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): T {
 	const value = useSyncExternalStore<T>(
-		(onStoreChange) =>
-			xignal.effect(() => {
-				signal.get();
-				onStoreChange();
-			}),
+		useCallback(
+			(onStoreChange) =>
+				xignal.effect(() => {
+					signal.get();
+					onStoreChange();
+				}),
+			[signal],
+		),
 		() => signal.get(),
 		() => signal.get(),
 	);
