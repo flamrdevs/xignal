@@ -12,6 +12,8 @@ Vue x xignal
 
 ```ts
 
+// ./signal.ts
+
 import * as xignal from "xignal";
 
 export const count = xignal.state(0);
@@ -19,7 +21,11 @@ export const doubled = xignal.computed(() => count.get() * 2);
 
 ```
 
-```html
+#### useSignalValue
+
+```vue
+
+<!-- ./Counter.vue -->
 
 <script setup lang="ts">
 import { useSignalValue } from "@xignal/vue";
@@ -31,11 +37,22 @@ const doubledValue = useSignalValue(doubled);
 </script>
 
 <template>
-  <div>
+	<div>
 		<div>count {{ countValue }}</div>
 		<div>doubled {{ doubledValue }}</div>
 	</div>
 </template>
+
+```
+
+#### Utils
+
+```ts
+
+import { createStateWithUseSignalValue, createComputedWithUseSignalValue } from "@xignal/vue";
+
+const [count, useCount] = createStateWithUseSignalValue(0);
+const [doubled, useDoubled] = createComputedWithUseSignalValue(() => count.get() * 2);
 
 ```
 

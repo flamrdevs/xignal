@@ -12,6 +12,8 @@ React x xignal
 
 ```ts
 
+// ./signal.ts
+
 import * as xignal from "xignal";
 
 export const count = xignal.state(0);
@@ -19,7 +21,11 @@ export const doubled = xignal.computed(() => count.get() * 2);
 
 ```
 
+#### useSignalValue
+
 ```tsx
+
+// ./counter.tsx
 
 import { useSignalValue } from "@xignal/react";
 
@@ -50,6 +56,17 @@ const shouldShow = xignal.state(false);
 const App = () => {
 	return <Show when={shouldShow}>children</Show>;
 };
+
+```
+
+#### Utils
+
+```ts
+
+import { createStateWithUseSignalValue, createComputedWithUseSignalValue } from "@xignal/react";
+
+const [count, useCount] = createStateWithUseSignalValue(0);
+const [doubled, useDoubled] = createComputedWithUseSignalValue(() => count.get() * 2);
 
 ```
 

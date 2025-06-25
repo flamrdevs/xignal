@@ -12,6 +12,8 @@ Lit x xignal
 
 ```ts
 
+// ./signal.ts
+
 import * as xignal from "xignal";
 
 export const count = xignal.state(0);
@@ -19,7 +21,11 @@ export const doubled = xignal.computed(() => count.get() * 2);
 
 ```
 
+#### UseSignalValue
+
 ```ts
+
+// ./component-counter.ts
 
 import { LitElement, html } from "lit";
 import { customElement } from "lit/decorators.js";
@@ -35,17 +41,24 @@ class Counter extends LitElement {
 
 	render() {
 		return html`
-      <div>
-			  <div>count ${this.countValue.get}</div>
-			  <div>doubled ${this.doubledValue.get}</div>
-		  </div>
+			<div>
+				<div>count ${this.countValue.get}</div>
+				<div>doubled ${this.doubledValue.get}</div>
+			</div>
     `;
 	}
-
-	createRenderRoot() {
-		return this;
-	}
 }
+
+```
+
+#### Utils
+
+```ts
+
+import { createStateWithUseSignalValue, createComputedWithUseSignalValue } from "@xignal/lit";
+
+const [count, useCount] = createStateWithUseSignalValue(0);
+const [doubled, useDoubled] = createComputedWithUseSignalValue(() => count.get() * 2);
 
 ```
 

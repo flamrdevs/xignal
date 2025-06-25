@@ -12,6 +12,8 @@ Svelte x xignal
 
 ```ts
 
+// ./signal.ts
+
 import * as xignal from "xignal";
 
 export const count = xignal.state(0);
@@ -19,7 +21,11 @@ export const doubled = xignal.computed(() => count.get() * 2);
 
 ```
 
-```html
+#### useSignalValue
+
+```svelte
+
+<!-- ./Counter.svelte -->
 
 <script lang="ts">
 import { useSignalValue } from "@xignal/svelte";
@@ -34,6 +40,17 @@ const doubledValue = useSignalValue(doubled);
   <div>count { countValue.get }</div>
   <div>doubled { doubledValue.get }</div>
 </div>
+
+```
+
+#### Utils
+
+```ts
+
+import { createStateWithUseSignalValue, createComputedWithUseSignalValue } from "@xignal/svelte";
+
+const [count, useCount] = createStateWithUseSignalValue(0);
+const [doubled, useDoubled] = createComputedWithUseSignalValue(() => count.get() * 2);
 
 ```
 
