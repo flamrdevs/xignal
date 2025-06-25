@@ -54,7 +54,6 @@ import { state, update } from "xignal";
 
 const n = state(0);
 
-update(n, 1); // n = 1
 update(n, (n) => n + 1); // n = 2
 
 ```

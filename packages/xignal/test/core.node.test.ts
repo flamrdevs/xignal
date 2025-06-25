@@ -147,7 +147,7 @@ vt.describe("core", () => {
 			vt.expect(fnGet).toBeTypeOf("function");
 			vt.expect(fnGet(2, 1)).toBe(3);
 
-			let next = xignal.update(n, 1);
+			let next = xignal.update(n, () => 1);
 			xignal.update(fn, () => (a, b) => a - b);
 
 			vt.expect(n.get()).toBe(1);

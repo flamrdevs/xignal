@@ -17,8 +17,8 @@ export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): T {
 	return value;
 }
 
-export function useSignalState<T>(signal: xignal.Signal.State<T>): [T, (action: xignal.UpdateAction<T>) => T] {
-	return [useSignalValue<T>(signal), useCallback((action) => xignal.update(signal, action), [signal])];
+export function useSignalState<T>(signal: xignal.Signal.State<T>): [T, (fn: xignal.UpdateFn<T>) => T] {
+	return [useSignalValue<T>(signal), useCallback((fn) => xignal.update(signal, fn), [signal])];
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn, inputs: Inputs | null = null): void {

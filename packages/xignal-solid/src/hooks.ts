@@ -15,10 +15,8 @@ export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): Accessor<T>
 	return value;
 }
 
-export function useSignalState<T>(
-	signal: xignal.Signal.State<T>,
-): [Accessor<T>, (action: xignal.UpdateAction<T>) => T] {
-	return [useSignalValue<T>(signal), (action) => xignal.update(signal, action)];
+export function useSignalState<T>(signal: xignal.Signal.State<T>): [Accessor<T>, (fn: xignal.UpdateFn<T>) => T] {
+	return [useSignalValue<T>(signal), (fn) => xignal.update(signal, fn)];
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn): void {

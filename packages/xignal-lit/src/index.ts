@@ -38,8 +38,8 @@ export class UseSignalState<T> extends UseSignalValue<T> {
 		super(host, signal);
 	}
 
-	update(action: xignal.UpdateAction<T>): T {
-		return xignal.update(this.signal, action);
+	update(fn: xignal.UpdateFn<T>): T {
+		return xignal.update(this.signal, fn);
 	}
 }
 

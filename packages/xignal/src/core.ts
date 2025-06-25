@@ -54,16 +54,6 @@ export function effect(fn: EffectFn): StopEffect {
 	};
 }
 
-export type UpdateActionFn<T> = (previousValue: T) => T;
-// biome-ignore lint/suspicious/noExplicitAny: type extends
-export type UpdateAction<T> = T extends (...args: any[]) => any ? UpdateActionFn<T> : T | UpdateActionFn<T>;
-
-export function update<T>(state: WritableSignal<T>, action: UpdateAction<T>): T {
-	const nextValue = typeof action === "function" ? (action as UpdateActionFn<T>)(state.get()) : (action as T);
-	state.set(nextValue);
-	return nextValue;
-}
-
 export function batch(fn: () => void): void {
 	alien.startBatch();
 	try {
@@ -80,4 +70,12 @@ export function untrack<T>(fn: () => T): T {
 	} finally {
 		alien.setCurrentSub(currentSub);
 	}
+}
+
+export type UpdateFn<T> = (previousValue: T) => T;
+
+export function update<T>(state: WritableSignal<T>, fn: UpdateFn<T>): T {
+	const nextValue = fn(untrack(() => state.get()));
+	state.set(nextValue);
+	return nextValue;
 }
