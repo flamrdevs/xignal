@@ -1,6 +1,8 @@
-import type { IconNode } from "lucide";
-import { For, type JSX, splitProps } from "solid-js";
+import type { JSX } from "solid-js";
+import { For, splitProps } from "solid-js";
 import { createDynamic } from "solid-js/web";
+
+import type { IconNode } from "lucide";
 
 const each = ([tag, attrs]: IconNode[number]) => createDynamic(() => tag, attrs);
 

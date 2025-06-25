@@ -1,5 +1,5 @@
-import { createEffect, createSignal, onCleanup } from "solid-js";
 import type { Accessor } from "solid-js";
+import { createEffect, createSignal, onCleanup } from "solid-js";
 
 import * as xignal from "xignal";
 
@@ -22,6 +22,7 @@ export function useSignalState<T>(
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn): void {
+	// biome-ignore lint/suspicious/noConfusingVoidType: better void
 	let cleanup: void | (() => void);
 
 	createEffect(() => {

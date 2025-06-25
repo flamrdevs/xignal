@@ -1,7 +1,6 @@
 import * as core from "../core";
-
-import { defaultDriver } from "./driver";
 import type { Driver } from "./driver";
+import { defaultDriver } from "./driver";
 
 export function state<T>(key: string): core.Signal.State<T | undefined>;
 export function state<T>(key: string, initialValue: T): core.Signal.State<T>;

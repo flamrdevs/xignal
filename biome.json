@@ -1,34 +1,105 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
 		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": ["**", "!**/*.astro", "!**/*.svelte", "!**/*.vue"]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
 		"lineWidth": 120
 	},
-	"json": {
-		"formatter": {
-			"lineWidth": 1
-		}
-	},
-	"organizeImports": {
-		"enabled": true
-	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true,
 			"style": {
+				"useImportType": {
+					"level": "error",
+					"options": {
+						"style": "separatedType"
+					},
+					"fix": "safe"
+				},
 				"useNodejsImportProtocol": "error",
 				"noNonNullAssertion": "info"
 			},
 			"suspicious": {
 				"noConfusingVoidType": "info",
 				"noExplicitAny": "info"
+			}
+		}
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": {
+					"level": "on",
+					"options": {
+						"groups": [
+							":NODE:",
+
+							":BLANK_LINE:",
+
+							["vite", "vite/**"],
+							["vitest", "vitest/**"],
+							"@vitejs/**",
+							"@vitest/**",
+
+							["astro", "astro/**"],
+							"@astrojs/**",
+
+							":BLANK_LINE:",
+
+							["lit", "lit/**"],
+
+							":BLANK_LINE:",
+
+							["preact", "preact/**"],
+
+							":BLANK_LINE:",
+
+							["react", "react/**", "react-dom", "react-dom/**"],
+
+							":BLANK_LINE:",
+
+							["solid-js", "solid-js/**"],
+
+							":BLANK_LINE:",
+
+							["svelte", "svelte/**"],
+
+							":BLANK_LINE:",
+
+							["vue", "vue/**"],
+
+							":BLANK_LINE:",
+
+							["xignal", "xignal/**"],
+							"@xignal/**",
+
+							":BLANK_LINE:",
+
+							[":PACKAGE:", "!@private/tests", "!@private/tests/**"],
+
+							":BLANK_LINE:",
+
+							["@private/tests", "@private/tests/**"],
+
+							":BLANK_LINE:",
+
+							":ALIAS:",
+
+							":BLANK_LINE:",
+
+							":PATH:"
+						]
+					}
+				}
 			}
 		}
 	}

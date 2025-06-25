@@ -5,7 +5,7 @@ export const cleanupable = () => {
 
 	function cleanup(): void;
 	function cleanup(fn: CleanupFn): CleanupFn;
-	function cleanup(fn?: CleanupFn): void | CleanupFn {
+	function cleanup(fn?: CleanupFn): undefined | CleanupFn {
 		if (typeof fn === "undefined") {
 			for (const set of sets) {
 				set();

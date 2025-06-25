@@ -3,15 +3,7 @@
 	"changelog": "@changesets/cli/changelog",
 	"commit": false,
 	"fixed": [
-		[
-			"xignal",
-			"@xignal/lit",
-			"@xignal/preact",
-			"@xignal/react",
-			"@xignal/solid",
-			"@xignal/svelte",
-			"@xignal/vue"
-		]
+		["xignal", "@xignal/lit", "@xignal/preact", "@xignal/react", "@xignal/solid", "@xignal/svelte", "@xignal/vue"]
 	],
 	"linked": [],
 	"access": "restricted",

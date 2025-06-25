@@ -1,10 +1,10 @@
 import * as vt from "vitest";
 
+import * as xignalStandardSchema from "xignal/standard-schema";
+
 import { type } from "arktype";
 import * as v from "valibot";
 import { z } from "zod";
-
-import * as xignalStandardSchema from "xignal/standard-schema";
 
 vt.describe("standard-schema", () => {
 	vt.describe("arktype", () => {
@@ -31,7 +31,7 @@ vt.describe("standard-schema", () => {
 					type({
 						key: "string",
 					}),
-					[] as any,
+					[] as unknown as { key: string },
 				);
 			}).toThrow();
 
@@ -44,7 +44,7 @@ vt.describe("standard-schema", () => {
 			vt.expect(computed.get()).toEqual({ length: 2 });
 
 			vt.expect(() => {
-				state.set([] as any);
+				state.set([] as unknown as { name: string });
 			}).toThrow();
 		});
 	});
@@ -73,7 +73,7 @@ vt.describe("standard-schema", () => {
 					v.object({
 						key: v.string(),
 					}),
-					[] as any,
+					[] as unknown as { key: string },
 				);
 			}).toThrow();
 
@@ -86,7 +86,7 @@ vt.describe("standard-schema", () => {
 			vt.expect(computed.get()).toEqual({ length: 2 });
 
 			vt.expect(() => {
-				state.set([] as any);
+				state.set([] as unknown as { name: string });
 			}).toThrow();
 		});
 	});
@@ -115,7 +115,7 @@ vt.describe("standard-schema", () => {
 					z.object({
 						key: z.string(),
 					}),
-					[] as any,
+					[] as unknown as { key: string },
 				);
 			}).toThrow();
 
@@ -128,7 +128,7 @@ vt.describe("standard-schema", () => {
 			vt.expect(computed.get()).toEqual({ length: 2 });
 
 			vt.expect(() => {
-				state.set([] as any);
+				state.set([] as unknown as { name: string });
 			}).toThrow();
 		});
 	});

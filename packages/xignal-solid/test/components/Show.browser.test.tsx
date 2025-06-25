@@ -1,11 +1,11 @@
 import * as vt from "vitest";
 
+import * as xignal from "xignal";
+import { Show } from "@xignal/solid";
+
 import { delay } from "es-toolkit/promise";
 
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
-
-import { Show } from "@xignal/solid";
-import * as xignal from "xignal";
 
 import { render } from "~/test/utils";
 

@@ -1,9 +1,8 @@
 import type { StandardSchemaV1 } from "@standard-schema/spec";
 
 import * as core from "../core";
-
-import { createParse } from "./utils";
 import type { Out } from "./utils";
+import { createParse } from "./utils";
 
 export function state<S extends StandardSchemaV1>(schema: S, initialValue: Out<NoInfer<S>>): core.Signal.State<Out<S>> {
 	const parse = createParse<S>(schema);

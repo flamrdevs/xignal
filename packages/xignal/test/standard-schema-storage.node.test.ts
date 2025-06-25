@@ -1,10 +1,9 @@
 import * as vt from "vitest";
 
-import { z } from "zod";
-
+import * as xignalStandardSchemaStorage from "xignal/standard-schema/storage";
 import * as xignalStorage from "xignal/storage";
 
-import * as xignalStandardSchemaStorage from "xignal/standard-schema/storage";
+import { z } from "zod";
 
 vt.describe("storage", () => {
 	vt.it("should work", () => {

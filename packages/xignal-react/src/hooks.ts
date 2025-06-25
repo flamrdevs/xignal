@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useSyncExternalStore } from "react";
 import type { DependencyList } from "react";
+import { useCallback, useEffect, useSyncExternalStore } from "react";
 
 import * as xignal from "xignal";
 

@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "preact/hooks";
 import type { Inputs } from "preact/hooks";
+import { useCallback, useEffect, useState } from "preact/hooks";
 
 import * as xignal from "xignal";
 
@@ -22,7 +22,6 @@ export function useSignalState<T>(signal: xignal.Signal.State<T>): [T, (action: 
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn, inputs: Inputs | null = null): void {
-	// biome-ignore lint/correctness/useExhaustiveDependencies: arg inputs
 	useEffect(() => xignal.effect(effectFn), inputs === null ? [] : inputs);
 }
 

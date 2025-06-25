@@ -1,5 +1,5 @@
-import { act } from "react";
 import type { ReactNode } from "react";
+import { act } from "react";
 import { createRoot } from "react-dom/client";
 
 import { createRemovableContainer } from "@private/tests/dom";
@@ -10,6 +10,7 @@ let init = false;
 export const render = (children: ReactNode) => {
 	if (!init) {
 		init = true;
+		// biome-ignore lint/suspicious/noExplicitAny: react env
 		(window as any).IS_REACT_ACT_ENVIRONMENT = true;
 	}
 

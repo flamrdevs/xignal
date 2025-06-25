@@ -1,5 +1,5 @@
-import { render as _render } from "preact";
 import type { ComponentChild } from "preact";
+import { render as _render } from "preact";
 
 import { createRemovableContainer } from "@private/tests/dom";
 import { cleanup } from "@private/tests/globals";

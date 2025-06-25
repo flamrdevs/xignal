@@ -1,5 +1,5 @@
-import { onUnmounted, shallowReadonly, shallowRef, watchEffect } from "vue";
 import type { ShallowRef } from "vue";
+import { onUnmounted, shallowReadonly, shallowRef, watchEffect } from "vue";
 
 import * as xignal from "xignal";
 

@@ -11,7 +11,9 @@ export type WritableSignal<T> = SignalGet<T> & SignalSet<T>;
 export type ReadonlySignal<T> = SignalGet<T>;
 
 export namespace Signal {
+	// biome-ignore lint/suspicious/noExplicitAny: should unknown
 	export type State<T = any> = WritableSignal<T>;
+	// biome-ignore lint/suspicious/noExplicitAny: should unknown
 	export type Computed<T = any> = ReadonlySignal<T>;
 }
 
@@ -27,16 +29,18 @@ export function computed<T>(getter: (previousValue?: T | undefined) => T): Signa
 	return { get: computed };
 }
 
+// biome-ignore lint/suspicious/noConfusingVoidType: better void
 export type EffectFn = () => void | (() => void);
 
 export type StopEffect = () => void;
 
 export function effect(fn: EffectFn): StopEffect {
+	// biome-ignore lint/suspicious/noConfusingVoidType: better void
 	let cleanup: void | (() => void);
 	const maybeCleanup = () => {
 		try {
 			cleanup?.();
-		} catch (error) {}
+		} catch {}
 	};
 
 	const stop = alien.effect(() => {
@@ -51,6 +55,7 @@ export function effect(fn: EffectFn): StopEffect {
 }
 
 export type UpdateActionFn<T> = (previousValue: T) => T;
+// biome-ignore lint/suspicious/noExplicitAny: type extends
 export type UpdateAction<T> = T extends (...args: any[]) => any ? UpdateActionFn<T> : T | UpdateActionFn<T>;
 
 export function update<T>(state: WritableSignal<T>, action: UpdateAction<T>): T {

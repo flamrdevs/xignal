@@ -5,8 +5,8 @@ import { act, useState } from "react";
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import { useSignalEffect } from "@xignal/react";
 import * as xignal from "xignal";
+import { useSignalEffect } from "@xignal/react";
 
 import { render } from "~/test/utils";
 

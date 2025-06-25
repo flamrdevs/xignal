@@ -2,12 +2,12 @@ import * as vt from "vitest";
 
 import { act } from "react";
 
+import * as xignal from "xignal";
+import { Show } from "@xignal/react";
+
 import { delay } from "es-toolkit/promise";
 
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
-
-import { Show } from "@xignal/react";
-import * as xignal from "xignal";
 
 import { render } from "~/test/utils";
 

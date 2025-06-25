@@ -1,5 +1,5 @@
-import { createMemo } from "solid-js";
 import type { JSX } from "solid-js";
+import { createMemo } from "solid-js";
 
 import type * as xignal from "xignal";
 

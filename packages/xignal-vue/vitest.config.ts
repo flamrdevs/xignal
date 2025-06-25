@@ -1,5 +1,4 @@
 import { defineProject } from "vitest/config";
-
 import vue from "@vitejs/plugin-vue";
 
 import { custom } from "@private/tests/config";

@@ -3,8 +3,8 @@ import * as vt from "vitest";
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
 
-import { useSignalState } from "@xignal/solid";
 import * as xignal from "xignal";
+import { useSignalState } from "@xignal/solid";
 
 import { render } from "~/test/utils";
 

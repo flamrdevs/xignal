@@ -1,14 +1,15 @@
-import { type ParentProps, Show, createEffect, createSignal, onCleanup } from "solid-js";
+/** biome-ignore-all lint/nursery/useUniqueElementIds: same ids */
+
+import type { ParentProps } from "solid-js";
+import { createEffect, createSignal, onCleanup, Show } from "solid-js";
 import { createDynamic } from "solid-js/web";
 
 import { useSignalValue } from "@xignal/solid";
 
+import clsx from "clsx";
 import * as lucide from "lucide";
 
-import clsx from "clsx";
-
 import { LucideIcon } from "~/libs/lucide.solid";
-
 import { theme, toggleTheme } from "~/theme/store";
 
 import { handleUpdate } from "./counter";

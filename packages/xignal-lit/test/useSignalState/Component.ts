@@ -1,8 +1,8 @@
-import { LitElement, html } from "lit";
+import { html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
-import { UseSignalState } from "@xignal/lit";
 import * as xignal from "xignal";
+import { UseSignalState } from "@xignal/lit";
 
 export const count = xignal.state(0);
 

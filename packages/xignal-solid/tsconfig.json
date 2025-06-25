@@ -4,11 +4,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"target": "ESNext",
 		"module": "ESNext",
-		"lib": [
-			"ESNext",
-			"DOM",
-			"DOM.Iterable"
-		],
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"moduleResolution": "bundler",
 		"esModuleInterop": true,
 		"allowImportingTsExtensions": true,
@@ -24,17 +20,9 @@
 		"jsxImportSource": "solid-js",
 		"baseUrl": "./",
 		"paths": {
-			"~/test/*": [
-				"./test/*"
-			]
+			"~/test/*": ["./test/*"]
 		}
 	},
-	"include": [
-		"src",
-		"test"
-	],
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
+	"include": ["src", "test"],
+	"exclude": ["node_modules", "dist"]
 }
