@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.24
+
+### Patch Changes
+
+- 0b6a72c: simplify `update(action)` to `update(fn)`
+
 ## 0.0.23
 
 ## 0.0.22

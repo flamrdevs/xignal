@@ -1,5 +1,14 @@
 # @xignal/svelte
 
+## 0.0.24
+
+### Patch Changes
+
+- bb5f4cf: update usage
+- 0b6a72c: simplify `update(action)` to `update(fn)`
+- Updated dependencies [0b6a72c]
+  - xignal@0.0.24
+
 ## 0.0.23
 
 ### Patch Changes
