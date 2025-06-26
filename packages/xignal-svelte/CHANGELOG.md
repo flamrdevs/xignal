@@ -1,5 +1,13 @@
 # @xignal/svelte
 
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies [ee6d60d]
+- Updated dependencies [935dc6f]
+  - xignal@0.0.25
+
 ## 0.0.24
 
 ### Patch Changes
