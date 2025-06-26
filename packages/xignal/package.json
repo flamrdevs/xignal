@@ -1,7 +1,7 @@
 {
 	"name": "xignal",
 	"version": "0.0.24",
-	"description": "signals library",
+	"description": "signals state management for real",
 	"keywords": [
 		"xignal",
 		"signal"

@@ -1,6 +1,6 @@
 [![version](https://badgen.net/npm/v/xignal)](https://www.npmjs.com/package/xignal)
 
-signals library
+signals state management for real
 
 ## Install
 
