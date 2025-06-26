@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.25
+
+### Patch Changes
+
+- ee6d60d: update description
+- 935dc6f: fix update() typing
+
 ## 0.0.24
 
 ### Patch Changes
