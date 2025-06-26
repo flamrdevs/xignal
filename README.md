@@ -1,6 +1,6 @@
 # xignal
 
-signals library
+signals state management for real
 
 ## Packages
 
@@ -46,6 +46,8 @@ doubled.get(); // 4
 ### [alien-signals](https://github.com/stackblitz/alien-signals)
 
 ### [nanostores](https://github.com/nanostores/nanostores)
+
+### [standard-schema](https://github.com/standard-schema/standard-schema)
 
 ## License
 
