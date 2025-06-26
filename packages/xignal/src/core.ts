@@ -74,7 +74,7 @@ export function untrack<T>(fn: () => T): T {
 
 export type UpdateFn<T> = (previousValue: T) => T;
 
-export function update<T>(state: WritableSignal<T>, fn: UpdateFn<T>): T {
+export function update<T>(state: WritableSignal<T>, fn: NoInfer<UpdateFn<T>>): T {
 	const nextValue = fn(untrack(() => state.get()));
 	state.set(nextValue);
 	return nextValue;
