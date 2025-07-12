@@ -6,7 +6,8 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["**", "!**/*.astro", "!**/*.svelte", "!**/*.vue"]
+		"includes": ["**", "!**/*.astro", "!**/*.svelte", "!**/*.vue"],
+		"experimentalScannerIgnores": ["node_modules", ".turbo", ".astro", "dist"]
 	},
 	"formatter": {
 		"enabled": true,
