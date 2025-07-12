@@ -16,7 +16,7 @@
 		"inspect": "pnpx node-modules-inspector"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.0.5",
+		"@biomejs/biome": "2.1.1",
 		"@changesets/cli": "^2.29.3",
 		"@preact/preset-vite": "^2.10.1",
 		"@private/tests": "workspace:*",
@@ -37,7 +37,7 @@
 		"vite-plugin-solid": "^2.11.6",
 		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^3.2.0",
-		"zod": "3.25.67"
+		"zod": "4.0.5"
 	},
 	"packageManager": "pnpm@10.10.0",
 	"engines": {
