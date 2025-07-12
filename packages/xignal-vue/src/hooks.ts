@@ -40,7 +40,7 @@ export function createStateWithUseSignalValue<T>(
 }
 
 export function createComputedWithUseSignalValue<T>(
-	getter: (previousValue?: T | undefined) => T,
+	getter: xignal.ComputedGetterFn<T>,
 ): [xignal.Signal.Computed<T>, () => ReadValue<T>] {
 	const computed = xignal.computed<T>(getter);
 	return [computed, () => useSignalValue(computed)];

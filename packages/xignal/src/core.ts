@@ -24,7 +24,9 @@ export function state<T>(initialValue?: T): Signal.State<T | undefined> {
 	return { get: signal, set: signal };
 }
 
-export function computed<T>(getter: (previousValue?: T | undefined) => T): Signal.Computed<T> {
+export type ComputedGetterFn<T> = (previousValue?: T | undefined) => T;
+
+export function computed<T>(getter: ComputedGetterFn<T>): Signal.Computed<T> {
 	const computed = alien.computed(getter);
 	return { get: computed };
 }
