@@ -45,6 +45,18 @@ const doubledValue = useSignalValue(doubled);
 
 ```
 
+#### useSignalState
+
+```vue
+<script setup lang="ts">
+import { useSignalState } from "@xignal/vue";
+
+import { count } from "./signal";
+
+const [countValue, countUpdate] = useSignalState(count);
+</script>
+```
+
 #### Utils
 
 ```ts

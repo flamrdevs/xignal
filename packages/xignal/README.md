@@ -17,8 +17,12 @@ import { state, computed, effect } from "xignal";
 const count = state(1);
 const doubled = computed(() => count.get() * 2);
 
-effect(() => {
+const stopEffect = effect(() => {
 	console.log(`doubled ${doubled.get()}`); // "doubled 2"
+
+	return () => {
+		console.log("cleanup");
+	};
 });
 
 count.get(); // 1
@@ -28,6 +32,8 @@ count.set(2); // "doubled 4"
 
 count.get(); // 2
 doubled.get(); // 4
+
+stopEffect(); // "cleanup"
 
 ```
 

@@ -51,6 +51,18 @@ class Counter extends LitElement {
 
 ```
 
+#### UseSignalValue
+
+```ts
+import { UseSignalState } from "@xignal/lit";
+
+import { count } from "./signal";
+
+class Component extends LitElement {
+	private countState = new UseSignalState(this, count);
+}
+```
+
 #### Utils
 
 ```ts

@@ -43,6 +43,18 @@ const doubledValue = useSignalValue(doubled);
 
 ```
 
+#### useSignalState
+
+```svelte
+<script lang="ts">
+import { useSignalState } from "@xignal/svelte";
+
+import { count } from "./signal";
+
+const [countValue, countUpdate] = useSignalState(count);
+</script>
+```
+
 #### Utils
 
 ```ts

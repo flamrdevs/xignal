@@ -44,6 +44,30 @@ const Counter = () => {
 
 ```
 
+#### useSignalState
+
+```tsx
+import { useSignalState } from "@xignal/preact";
+
+import { count } from "./signal";
+
+const Component = () => {
+	const [countValue, countUpdate] = useSignalState(count);
+};
+```
+
+#### useSignalComputed
+
+```tsx
+import { useSignalComputed } from "@xignal/preact";
+
+import { count } from "./signal";
+
+const Component = () => {
+	const doubledValue = useSignalComputed(() => count.get() * 2);
+};
+```
+
 ### Show
 
 ```tsx
