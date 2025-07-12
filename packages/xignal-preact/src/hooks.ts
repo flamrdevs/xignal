@@ -1,5 +1,5 @@
 import type { Inputs } from "preact/hooks";
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 
 import * as xignal from "xignal";
 
@@ -19,6 +19,10 @@ export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): T {
 
 export function useSignalState<T>(signal: xignal.Signal.State<T>): [T, (fn: xignal.UpdateFn<T>) => T] {
 	return [useSignalValue<T>(signal), useCallback((fn) => xignal.update(signal, fn), [signal])];
+}
+
+export function useSignalComputed<T>(getter: xignal.ComputedGetterFn<T>, inputs: Inputs | null = null): T {
+	return useSignalValue<T>(useMemo(() => xignal.computed(getter), inputs === null ? [] : inputs));
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn, inputs: Inputs | null = null): void {

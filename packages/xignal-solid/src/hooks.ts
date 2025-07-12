@@ -1,5 +1,5 @@
 import type { Accessor } from "solid-js";
-import { createEffect, createSignal, onCleanup } from "solid-js";
+import { createEffect, createMemo, createSignal, onCleanup } from "solid-js";
 
 import * as xignal from "xignal";
 
@@ -17,6 +17,22 @@ export function useSignalValue<T>(signal: xignal.ReadonlySignal<T>): Accessor<T>
 
 export function useSignalState<T>(signal: xignal.Signal.State<T>): [Accessor<T>, (fn: xignal.UpdateFn<T>) => T] {
 	return [useSignalValue<T>(signal), (fn) => xignal.update(signal, fn)];
+}
+
+export function useSignalComputed<T>(getter: xignal.ComputedGetterFn<T>): Accessor<T> {
+	const computed = createMemo(() => {
+		const result = xignal.computed(getter);
+		result.get();
+		return result;
+	});
+
+	const [value, setValue] = createSignal<T>(computed().get());
+
+	useSignalEffect(() => {
+		setValue(() => computed().get());
+	});
+
+	return value;
 }
 
 export function useSignalEffect(effectFn: xignal.EffectFn): void {
