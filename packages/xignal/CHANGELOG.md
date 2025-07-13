@@ -1,5 +1,11 @@
 # xignal
 
+## 0.0.26
+
+### Patch Changes
+
+- 26cb388: update usage
+
 ## 0.0.25
 
 ### Patch Changes
