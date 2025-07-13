@@ -13,7 +13,6 @@ overrides:
   '@vitejs/plugin-vue': $@vitejs/plugin-vue
   fs-extra: 8.1.0
   vite: ^6
-  zod: $zod
   '@astrojs/vue>@vitejs/plugin-vue-jsx': '-'
   '@astrojs/vue>vite-plugin-vue-devtools': '-'
   astro>sharp: '-'

@@ -42,6 +42,10 @@
 /* xn = neutral */
 
 @theme {
+	--font-sans: "Mona Sans Variable", ui-sans-serif, sans-serif;
+	--font-serif: ui-serif, serif;
+	--font-mono: ui-monospace, monospace;
+
 	--color-xn-1: var(--gray-1);
 	--color-xn-2: var(--gray-2);
 	--color-xn-3: var(--gray-3);
@@ -54,6 +58,12 @@
 	--color-xn-10: var(--gray-10);
 	--color-xn-11: var(--gray-11);
 	--color-xn-12: var(--gray-12);
+}
+
+@layer base {
+	body {
+		@apply font-sans;
+	}
 }
 
 @layer components {

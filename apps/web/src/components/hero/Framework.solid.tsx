@@ -198,7 +198,7 @@ const Framework = (props: ParentProps<{ id: keyof typeof ID; class?: string }>) 
 		<button
 			type="button"
 			class={clsx(
-				"relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-xn-6/25 active:bg-xn-6/75 font-mono font-medium text-2xl md:text-3xl xl:text-4xl text-xn-11 border border-xn-6 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-xn-9 select-none active:scale-99 transition",
+				"relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-xn-6/25 active:bg-xn-6/75 font-sans font-medium text-2xl md:text-3xl xl:text-4xl text-xn-11 border border-xn-6 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-xn-9 select-none active:scale-99 transition cursor-pointer",
 				props.class,
 			)}
 			onClick={handleUpdate}
@@ -215,7 +215,7 @@ const Framework = (props: ParentProps<{ id: keyof typeof ID; class?: string }>) 
 };
 
 export const Interval = () => {
-	const [active, setActive] = createSignal(false);
+	const [active, setActive] = createSignal(true);
 
 	let cleanup: (() => void) | undefined;
 
@@ -235,7 +235,7 @@ export const Interval = () => {
 	return (
 		<button
 			type="button"
-			class="relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-xn-6/25 active:bg-xn-6/75 font-mono font-medium text-base md:text-lg xl:text-xl text-xn-11 border border-xn-6 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-xn-9 select-none active:scale-99 transition"
+			class="relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-xn-6/25 active:bg-xn-6/75 font-sans font-medium text-base md:text-lg xl:text-xl text-xn-11 border border-xn-6 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-xn-9 select-none active:scale-99 transition cursor-pointer"
 			onClick={() => setActive((v) => !v)}
 		>
 			<span>Interval</span>
@@ -249,7 +249,7 @@ export const Theme = () => {
 	return (
 		<button
 			type="button"
-			class="relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-xn-6/25 active:bg-xn-6/75 font-mono font-medium text-base md:text-lg xl:text-xl text-xn-11 border border-xn-6 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-xn-9 select-none active:scale-99 transition"
+			class="relative flex flex-col items-center justify-center size-16 md:size-24 xl:size-32 bg-transparent hover:bg-xn-6/25 active:bg-xn-6/75 font-sans font-medium text-base md:text-lg xl:text-xl text-xn-11 border border-xn-6 rounded-lg md:rounded-xl xl:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-xn-9 select-none active:scale-99 transition cursor-pointer"
 			onClick={toggleTheme}
 		>
 			<Show when={themeValue() === "dark"} fallback={<LucideIcon i={lucide.Moon} class="size-8" />}>
