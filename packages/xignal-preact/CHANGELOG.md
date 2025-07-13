@@ -1,5 +1,14 @@
 # @xignal/preact
 
+## 0.0.26
+
+### Patch Changes
+
+- 26cb388: update usage
+- 49532d1: new useSignalComputed hook
+- Updated dependencies [26cb388]
+  - xignal@0.0.26
+
 ## 0.0.25
 
 ### Patch Changes

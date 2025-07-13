@@ -1,5 +1,13 @@
 # @xignal/vue
 
+## 0.0.26
+
+### Patch Changes
+
+- 26cb388: update usage
+- Updated dependencies [26cb388]
+  - xignal@0.0.26
+
 ## 0.0.25
 
 ### Patch Changes
