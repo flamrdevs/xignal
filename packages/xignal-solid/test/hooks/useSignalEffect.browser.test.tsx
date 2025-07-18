@@ -1,6 +1,6 @@
 import * as vt from "vitest";
 
-import { createSignal } from "solid-js";
+import { createRoot, createSignal } from "solid-js";
 
 import { expectGetElementToBeInTheDocument } from "@private/tests/browser";
 import "@private/tests/styles";
@@ -65,6 +65,43 @@ vt.describe("useSignalEffect", () => {
 		await vt.vi.waitFor(() => {
 			vt.expect(fnEffect).toHaveBeenCalledTimes(3);
 			vt.expect(fnEffectCleanup).toHaveBeenCalledTimes(3);
+		});
+	});
+
+	vt.describe("non-component", () => {
+		vt.it("should work", async () => {
+			const count = xignal.state(0);
+
+			const fnEffect = vt.vi.fn();
+			const fnEffectCleanup = vt.vi.fn();
+
+			const dispose = createRoot((dispose) => {
+				useSignalEffect(() => {
+					fnEffect(count.get());
+					return fnEffectCleanup;
+				});
+
+				return dispose;
+			});
+
+			await vt.vi.waitFor(() => {
+				vt.expect(fnEffect).toHaveBeenCalledOnce();
+				vt.expect(fnEffectCleanup).not.toHaveBeenCalled();
+			});
+
+			count.set(1);
+
+			await vt.vi.waitFor(() => {
+				vt.expect(fnEffect).toHaveBeenCalledTimes(2);
+				vt.expect(fnEffectCleanup).toHaveBeenCalledOnce();
+			});
+
+			dispose();
+
+			await vt.vi.waitFor(() => {
+				vt.expect(fnEffect).toHaveBeenCalledTimes(2);
+				vt.expect(fnEffectCleanup).toHaveBeenCalledTimes(2);
+			});
 		});
 	});
 });
