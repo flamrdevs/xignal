@@ -44,7 +44,7 @@
 @theme {
 	--font-sans: "Mona Sans Variable", ui-sans-serif, sans-serif;
 	--font-serif: ui-serif, serif;
-	--font-mono: ui-monospace, monospace;
+	--font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
 	--color-xn-1: var(--gray-1);
 	--color-xn-2: var(--gray-2);

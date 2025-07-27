@@ -3,11 +3,14 @@ import "~/styles/fonts.css";
 import "~/styles/global.css";
 
 type Props = {
-	title: string;
-	description: string;
+	title?: string;
+	description?: string;
 };
 
 const { title, description } = Astro.props;
+
+const finalTitle = `${title ? `${title} - ` : ""}xignal`
+const finalDescription = description || "signals state management for real"
 ---
 
 <html lang="en" data-thx="dark">
@@ -15,12 +18,12 @@ const { title, description } = Astro.props;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     
-    <title>{title}</title>
-    <meta name="description" content={description}>
+    <title>{finalTitle}</title>
+    <meta name="description" content={finalDescription}>
 
     <script>
       import "~/theme/sync/dist/index.js"
