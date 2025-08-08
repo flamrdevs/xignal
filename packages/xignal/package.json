@@ -48,7 +48,7 @@
 	},
 	"dependencies": {
 		"@standard-schema/spec": "^1.0.0",
-		"alien-signals": "^2.0.5"
+		"alien-signals": "^2.0.6"
 	},
 	"publishConfig": {
 		"access": "public"
