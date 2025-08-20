@@ -140,7 +140,7 @@ importers:
         specifier: ^0.540.0
         version: 0.540.0
       preact:
-        specifier: ^10.27.1
+        specifier: ^10
         version: 10.27.1
       propsplit:
         specifier: ^1.0.1
@@ -200,7 +200,7 @@ importers:
   packages/xignal-preact:
     devDependencies:
       preact:
-        specifier: ^10.27.1
+        specifier: ^10
         version: 10.27.1
       xignal:
         specifier: workspace:*
