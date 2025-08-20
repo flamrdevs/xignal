@@ -1,5 +1,12 @@
 # xignal
 
+## 0.0.27
+
+### Patch Changes
+
+- 803831a: update alien-signals
+- c97482d: update alien-signals
+
 ## 0.0.26
 
 ### Patch Changes
