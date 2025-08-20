@@ -8,7 +8,7 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@ark-ui/solid": "^5.18.4",
+		"@ark-ui/solid": "^5.19.0",
 		"@astrojs/preact": "^4.1.0",
 		"@astrojs/react": "^4.3.0",
 		"@astrojs/sitemap": "^3.5.0",
